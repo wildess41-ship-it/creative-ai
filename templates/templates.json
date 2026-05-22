@@ -1,0 +1,211 @@
+{
+  "animationPresets": {
+    "cinematic-zoom": {
+      "type": "zoom",
+      "startScale": 1.0,
+      "endScale": 1.15,
+      "duration": 3000,
+      "easing": "ease-out",
+      "description": "Slow cinematic zoom in"
+    },
+    "ken-burns": {
+      "type": "ken-burns",
+      "startScale": 1.05,
+      "endScale": 1.2,
+      "startX": 0,
+      "endX": -20,
+      "startY": 0,
+      "endY": -10,
+      "duration": 4000,
+      "easing": "linear",
+      "description": "Classic Ken Burns pan and zoom"
+    },
+    "parallax": {
+      "type": "parallax",
+      "depth": 0.3,
+      "duration": 3500,
+      "easing": "ease-in-out",
+      "description": "Fake depth parallax effect"
+    },
+    "pan": {
+      "type": "pan",
+      "direction": "right",
+      "distance": 40,
+      "duration": 3000,
+      "easing": "ease-in-out",
+      "description": "Smooth horizontal pan"
+    },
+    "glow": {
+      "type": "overlay",
+      "effect": "radial-glow",
+      "color": "rgba(255,255,255,0.15)",
+      "duration": 2000,
+      "pulse": true,
+      "description": "Soft glow overlay pulse"
+    },
+    "blur-reveal": {
+      "type": "filter",
+      "startBlur": 8,
+      "endBlur": 0,
+      "duration": 1200,
+      "easing": "ease-out",
+      "description": "Blur to sharp reveal"
+    },
+    "sparkle": {
+      "type": "particles",
+      "count": 20,
+      "size": [2, 5],
+      "color": ["#ffffff", "#ffe066", "#c9a84c"],
+      "duration": 2500,
+      "description": "Floating sparkle particles"
+    },
+    "smooth-transition": {
+      "type": "transition",
+      "style": "cross-fade",
+      "duration": 800,
+      "easing": "ease-in-out",
+      "description": "Smooth cross-fade between images"
+    },
+    "zoom-punch": {
+      "type": "zoom",
+      "startScale": 1.0,
+      "endScale": 1.08,
+      "duration": 400,
+      "easing": "ease-out",
+      "bounce": true,
+      "description": "Quick zoom punch effect"
+    },
+    "fade": {
+      "type": "transition",
+      "style": "fade",
+      "duration": 600,
+      "easing": "ease-in-out",
+      "description": "Simple fade transition"
+    },
+    "fade-elegant": {
+      "type": "transition",
+      "style": "fade",
+      "duration": 1000,
+      "easing": "ease-in-out",
+      "description": "Slow elegant fade"
+    },
+    "flash-cut": {
+      "type": "transition",
+      "style": "cut",
+      "duration": 100,
+      "flash": true,
+      "description": "Hard cut with flash"
+    },
+    "cross-dissolve": {
+      "type": "transition",
+      "style": "cross-dissolve",
+      "duration": 700,
+      "easing": "ease-in-out",
+      "description": "Cross dissolve between images"
+    },
+    "slide-elegant": {
+      "type": "transition",
+      "style": "slide",
+      "direction": "left",
+      "duration": 800,
+      "easing": "ease-in-out",
+      "description": "Elegant slide transition"
+    },
+    "slide-clean": {
+      "type": "transition",
+      "style": "slide",
+      "direction": "up",
+      "duration": 600,
+      "easing": "ease-out",
+      "description": "Clean upward slide"
+    },
+    "slide-bold": {
+      "type": "transition",
+      "style": "slide",
+      "direction": "left",
+      "duration": 400,
+      "easing": "ease-in",
+      "description": "Bold fast slide"
+    },
+    "tech-reveal": {
+      "type": "reveal",
+      "style": "horizontal-wipe",
+      "duration": 600,
+      "easing": "ease-out",
+      "description": "Tech-style horizontal wipe"
+    },
+    "split-reveal": {
+      "type": "reveal",
+      "style": "split",
+      "duration": 700,
+      "easing": "ease-out",
+      "description": "Split reveal from center"
+    },
+    "glow-fade": {
+      "type": "transition",
+      "style": "fade",
+      "duration": 900,
+      "glow": true,
+      "easing": "ease-in-out",
+      "description": "Fade with glow burst"
+    }
+  },
+
+  "textPositions": {
+    "bottom-center": { "x": "50%", "y": "85%", "align": "center", "anchor": "bottom" },
+    "center":        { "x": "50%", "y": "50%", "align": "center", "anchor": "middle" },
+    "top-left":      { "x": "8%",  "y": "10%", "align": "left",   "anchor": "top" },
+    "top-center":    { "x": "50%", "y": "10%", "align": "center", "anchor": "top" },
+    "top-right":     { "x": "92%", "y": "10%", "align": "right",  "anchor": "top" },
+    "bottom-left":   { "x": "8%",  "y": "85%", "align": "left",   "anchor": "bottom" },
+    "right-center":  { "x": "90%", "y": "50%", "align": "right",  "anchor": "middle" },
+    "left-center":   { "x": "10%", "y": "50%", "align": "left",   "anchor": "middle" }
+  },
+
+  "ratioConfigs": {
+    "9:16": {
+      "width": 1080,
+      "height": 1920,
+      "previewWidth": 270,
+      "previewHeight": 480,
+      "textScale": 1.0,
+      "safeZoneX": 80,
+      "safeZoneY": 120
+    },
+    "1:1": {
+      "width": 1080,
+      "height": 1080,
+      "previewWidth": 360,
+      "previewHeight": 360,
+      "textScale": 0.95,
+      "safeZoneX": 80,
+      "safeZoneY": 80
+    },
+    "4:5": {
+      "width": 1080,
+      "height": 1350,
+      "previewWidth": 288,
+      "previewHeight": 360,
+      "textScale": 0.98,
+      "safeZoneX": 80,
+      "safeZoneY": 100
+    }
+  },
+
+  "durationConfigs": {
+    "short": {
+      "totalSeconds": 10,
+      "framesPerSecond": 30,
+      "totalFrames": 300,
+      "imageDisplayTime": 2500,
+      "transitionTime": 600
+    },
+    "medium": {
+      "totalSeconds": 15,
+      "framesPerSecond": 30,
+      "totalFrames": 450,
+      "imageDisplayTime": 3500,
+      "transitionTime": 800
+    }
+  }
+}

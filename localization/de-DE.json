@@ -1,0 +1,46 @@
+{
+  "code": "de-DE",
+  "name": "Deutsch",
+  "country": "DE",
+  "hooks": {
+    "jewelry":  ["Sie wird es nie vergessen", "Der Luxus, den sie verdient", "Das perfekte Geschenk gefunden", "Heute anders strahlen", "Eleganz neu definiert"],
+    "beauty":   ["Ihre Haut wird es lieben", "Echte Ergebnisse in Tagen", "Das Geheimnis ist gelüftet", "Perfekte Haut beginnt hier", "Strahlen wie nie zuvor"],
+    "fashion":  ["Scroll-Stopper garantiert", "Anziehen zum Beeindrucken", "Der Trend ist angekommen", "Mode, die Sinn macht", "Ihr neuer Lieblingslook"],
+    "gadgets":  ["Das ändert alles", "Technik, die wirklich funktioniert", "Warum gab es das nicht früher?", "Das Gadget des Moments", "Innovation in Ihren Händen"],
+    "home":     ["Ihr Zuhause verdient das", "Verwandeln Sie Ihren Raum heute", "Deko, die Gäste begeistert", "Traumzuhause beginnt hier", "Das Upgrade, das Sie brauchen"],
+    "fitness":  ["Echte Ergebnisse sind da", "Ihr Körper wird es danken", "Training, das wirklich wirkt", "Der Körper, den Sie wollen", "Ihre Evolution beginnt jetzt"],
+    "pets":     ["Ihr Haustier wird es lieben", "Die Pflege, die es verdient", "Glückliches Tier, glücklicher Besitzer", "Schwanzwedeln garantiert", "Liebe als Produkt"],
+    "baby":     ["Ihr Baby verdient das Beste", "Pflege durch Wissenschaft", "Sicherheit, der Sie vertrauen", "Glückliche Familie beginnt hier", "Seelenfrieden geliefert"]
+  },
+  "interest": {
+    "jewelry":  ["Handgefertigt mit Premium-Finish", "Exklusives Design, Liebe auf den ersten Blick", "Feinschmuck für besondere Momente", "Echter Glanz, der ewig hält"],
+    "beauty":   ["Dermatologisch getestet und zugelassen", "Natürliche Zutaten mit moderner Technologie", "Sichtbare Ergebnisse in nur 7 Tagen", "Von Hautpflegeexperten entwickelt"],
+    "fashion":  ["Premium-Stoff mit perfektem Fall", "Vielseitiges Stück für jeden Anlass", "Exklusives Design zum Dauern", "Bewusste Mode mit einzigartigem Stil"],
+    "gadgets":  ["Modernste Technologie für den Alltag", "Kompatibel mit allen modernen Geräten", "Ganztägige Akkulaufzeit garantiert", "Ergonomisches und intuitives Design"],
+    "home":     ["Premium-Material mit garantierter Langlebigkeit", "Design, das zu jedem Raum passt", "Einfache Installation ohne Aufwand", "Qualität, die man sieht und fühlt"],
+    "fitness":  ["Mit Profisportlern entwickelt", "Atmungsaktives Hochleistungsmaterial", "Ideale Unterstützung für intensive Workouts", "Technologie, die Ergebnisse verstärkt"],
+    "pets":     ["Von Fachtierärzten zugelassen", "Sicheres, nicht-toxisches zertifiziertes Material", "Maximaler Komfort für Ihren Begleiter", "Qualität, die Ihr Tier spürt"],
+    "baby":     ["Von Kinderärzten getestet und zugelassen", "Hypoallergenes zertifiziertes Material", "Maximale Sicherheit für Ihr Baby", "Mit Liebe und Wissenschaft entwickelt"]
+  },
+  "desire": {
+    "jewelry":  ["Fühlen Sie sich täglich einzigartig", "Ein Geschenk, das sie nie vergisst", "Zugänglicher Luxus nur für Sie"],
+    "beauty":   ["Die strahlende Haut, die Sie verdienen", "Selbstvertrauen, das von innen kommt", "Schönheit, die alle beeindruckt"],
+    "fashion":  ["Stil, der definiert, wer Sie sind", "Perfekter Look für jeden Moment", "Mode, die Sie strahlen lässt"],
+    "gadgets":  ["Produktivität, die Sie wirklich spüren", "Technologie, die alles vereinfacht", "Innovation jetzt in Ihrer Tasche"],
+    "home":     ["Ein Raum, der inspiriert und entspannt", "Das Zuhause, von dem Sie immer träumten", "Der Komfort, den Sie verdienen"],
+    "fitness":  ["Der Körper, den Sie immer wollten", "Echte und beständige Entwicklung", "Gesundheit, die Ihr Leben verändert"],
+    "pets":     ["Ein glücklicheres und gesünderes Tier", "Eine Bindung, die täglich wächst", "Die Pflege, die es verdient"],
+    "baby":     ["Sicheres und komfortables Baby", "Seelenfrieden für die ganze Familie", "Pflege, die wirklich einen Unterschied macht"]
+  },
+  "cta": {
+    "jewelry":  ["Jetzt kaufen", "Ihr holen", "Heute bestellen", "Zugreifen"],
+    "beauty":   ["Jetzt testen", "Ihr holen", "Heute kaufen", "Bestellen"],
+    "fashion":  ["Jetzt kaufen", "Heute tragen", "Ihr holen", "Bestellen"],
+    "gadgets":  ["Jetzt kaufen", "Ihr holen", "Heute bestellen", "Zugreifen"],
+    "home":     ["Jetzt kaufen", "Heute verwandeln", "Ihr holen", "Bestellen"],
+    "fitness":  ["Jetzt starten", "Ihr holen", "Heute bestellen", "Entwickeln"],
+    "pets":     ["Jetzt kaufen", "Ihr holen", "Heute bestellen", "Pflegen"],
+    "baby":     ["Jetzt kaufen", "Ihr holen", "Heute bestellen", "Schützen"]
+  },
+  "urgency": ["Letzte Einheiten verfügbar!", "Zeitlich begrenztes Angebot", "Bestand geht zur Neige", "Nur heute mit Rabatt", "Nicht verpassen"]
+}

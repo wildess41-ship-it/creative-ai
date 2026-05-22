@@ -1,0 +1,46 @@
+{
+  "code": "en-US",
+  "name": "English (US)",
+  "country": "US",
+  "hooks": {
+    "jewelry":  ["She'll never forget this", "Luxury she deserves", "The perfect gift found", "Shine different today", "Elegance redefined here"],
+    "beauty":   ["Your skin will thank you", "Real results in days", "The secret is out now", "Perfect skin starts here", "Glow like never before"],
+    "fashion":  ["Stop the scroll style", "Dress to impress daily", "The trend has arrived", "Fashion that makes sense", "Your new favorite look"],
+    "gadgets":  ["This will change everything", "Tech that actually works", "Why didn't this exist before?", "The gadget everyone wants", "Innovation in your hands"],
+    "home":     ["Your home deserves this", "Transform your space today", "Decor that wows guests", "Dream home starts here", "The upgrade you need"],
+    "fitness":  ["Real results are here", "Your body will thank you", "Training that actually works", "The body you want here", "Evolution starts now"],
+    "pets":     ["Your pet will love this", "The care they deserve", "Happy pet, happy life", "Tail-wagging approved", "Love in product form"],
+    "baby":     ["Your baby deserves best", "Care backed by science", "Safety you can trust", "Happy family starts here", "Peace of mind delivered"]
+  },
+  "interest": {
+    "jewelry":  ["Handcrafted with premium finish", "Exclusive design love at first sight", "Fine jewelry for special moments", "Real brilliance that lasts forever"],
+    "beauty":   ["Dermatologist tested and approved", "Natural ingredients, advanced technology", "Visible results in just 7 days", "Developed by skin care experts"],
+    "fashion":  ["Premium fabric with perfect drape", "Versatile piece for any occasion", "Exclusive design built to last", "Conscious fashion with unique style"],
+    "gadgets":  ["Cutting-edge tech for everyday use", "Compatible with all modern devices", "All-day battery life guaranteed", "Ergonomic and intuitive design"],
+    "home":     ["Premium material with guaranteed durability", "Design that fits any room style", "Easy installation no tools needed", "Quality you can see and feel"],
+    "fitness":  ["Developed with professional athletes", "High-performance breathable material", "Ideal support for intense workouts", "Technology that amplifies results"],
+    "pets":     ["Approved by specialized veterinarians", "Safe non-toxic certified material", "Maximum comfort for your companion", "Quality your pet can feel"],
+    "baby":     ["Tested and approved by pediatricians", "Hypoallergenic certified material", "Maximum safety for your baby", "Developed with love and science"]
+  },
+  "desire": {
+    "jewelry":  ["Feel unique every single day", "A gift she'll never forget", "Affordable luxury just for you"],
+    "beauty":   ["The radiant skin you deserve", "Confidence that comes from within", "Beauty that impresses everyone"],
+    "fashion":  ["Style that defines who you are", "Perfect look for any moment", "Fashion that makes you shine"],
+    "gadgets":  ["Productivity you'll actually feel", "Technology that simplifies life", "Innovation in your pocket now"],
+    "home":     ["A space that inspires and relaxes", "The home you always dreamed of", "Comfort you truly deserve"],
+    "fitness":  ["The body you always wanted", "Real and consistent evolution", "Health that transforms your life"],
+    "pets":     ["A happier and healthier pet", "A bond that keeps growing", "The care they truly deserve"],
+    "baby":     ["Safe and comfortable baby", "Peace of mind for the family", "Care that makes a difference"]
+  },
+  "cta": {
+    "jewelry":  ["Shop now", "Get yours today", "Order today", "Grab yours"],
+    "beauty":   ["Try it now", "Get yours today", "Shop today", "Order now"],
+    "fashion":  ["Shop now", "Wear it today", "Get yours", "Order now"],
+    "gadgets":  ["Shop now", "Get yours today", "Order today", "Grab it now"],
+    "home":     ["Shop now", "Transform today", "Get yours", "Order now"],
+    "fitness":  ["Start now", "Get yours today", "Order today", "Level up now"],
+    "pets":     ["Shop now", "Get yours today", "Order today", "Care now"],
+    "baby":     ["Shop now", "Get yours today", "Order today", "Protect now"]
+  },
+  "urgency": ["Limited stock left!", "Limited time offer", "Selling out fast", "Today only deal", "Don't miss out"]
+}

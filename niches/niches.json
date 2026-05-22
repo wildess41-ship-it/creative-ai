@@ -1,0 +1,396 @@
+{
+  "niches": [
+    {
+      "id": "jewelry",
+      "label": "Jewelry & Accessories",
+      "icon": "💎",
+      "musicCategory": "luxury",
+      "colorPalette": ["#c9a84c", "#f5e6c8", "#1a1208", "#fff8e7"],
+      "fontStyle": "serif-elegant",
+      "templates": [
+        {
+          "id": "jewelry-luxury",
+          "name": "Luxury",
+          "description": "Dark background, gold accents, cinematic zoom",
+          "bgColor": "#0d0a05",
+          "textColor": "#f5e6c8",
+          "accentColor": "#c9a84c",
+          "animations": ["cinematic-zoom", "glow", "sparkle"],
+          "textPosition": "bottom-center",
+          "ctaStyle": "gold-outline",
+          "transition": "fade-elegant",
+          "overlayOpacity": 0.4
+        },
+        {
+          "id": "jewelry-emotional-gift",
+          "name": "Emotional Gift",
+          "description": "Warm tones, soft blur, emotional parallax",
+          "bgColor": "#1a0f0a",
+          "textColor": "#fff8e7",
+          "accentColor": "#e8b86d",
+          "animations": ["parallax", "blur-reveal", "smooth-transition"],
+          "textPosition": "center",
+          "ctaStyle": "warm-fill",
+          "transition": "cross-dissolve",
+          "overlayOpacity": 0.35
+        },
+        {
+          "id": "jewelry-premium-lifestyle",
+          "name": "Premium Lifestyle",
+          "description": "Clean white, minimal, Ken Burns",
+          "bgColor": "#fafaf8",
+          "textColor": "#1a1208",
+          "accentColor": "#b8860b",
+          "animations": ["ken-burns", "pan", "fade"],
+          "textPosition": "top-left",
+          "ctaStyle": "dark-solid",
+          "transition": "slide-elegant",
+          "overlayOpacity": 0.15
+        }
+      ]
+    },
+    {
+      "id": "beauty",
+      "label": "Beauty & Skincare",
+      "icon": "✨",
+      "musicCategory": "premium",
+      "colorPalette": ["#f7c5d0", "#fff0f5", "#2d1a20", "#e8a0b0"],
+      "fontStyle": "modern-clean",
+      "templates": [
+        {
+          "id": "beauty-glow",
+          "name": "Glow",
+          "description": "Pink gradient, sparkle, glow effect",
+          "bgColor": "#1a0a10",
+          "textColor": "#fff0f5",
+          "accentColor": "#f7c5d0",
+          "animations": ["glow", "sparkle", "cinematic-zoom"],
+          "textPosition": "bottom-center",
+          "ctaStyle": "pink-gradient",
+          "transition": "glow-fade",
+          "overlayOpacity": 0.3
+        },
+        {
+          "id": "beauty-premium-skin",
+          "name": "Premium Skin",
+          "description": "Clean white, clinical, smooth pan",
+          "bgColor": "#fefefe",
+          "textColor": "#2d1a20",
+          "accentColor": "#e8a0b0",
+          "animations": ["pan", "smooth-transition", "fade"],
+          "textPosition": "right-center",
+          "ctaStyle": "rose-outline",
+          "transition": "slide-clean",
+          "overlayOpacity": 0.1
+        },
+        {
+          "id": "beauty-transformation",
+          "name": "Transformation",
+          "description": "Split reveal, before/after feel, energetic",
+          "bgColor": "#0f0a12",
+          "textColor": "#f5f0ff",
+          "accentColor": "#c084fc",
+          "animations": ["parallax", "blur-reveal", "zoom-punch"],
+          "textPosition": "center",
+          "ctaStyle": "purple-gradient",
+          "transition": "split-reveal",
+          "overlayOpacity": 0.4
+        }
+      ]
+    },
+    {
+      "id": "fashion",
+      "label": "Fashion",
+      "icon": "👗",
+      "musicCategory": "viral",
+      "colorPalette": ["#e8e0d8", "#1a1614", "#c8b89a", "#fff"],
+      "fontStyle": "editorial",
+      "templates": [
+        {
+          "id": "fashion-editorial",
+          "name": "Editorial",
+          "description": "Black & white, editorial pan, bold text",
+          "bgColor": "#0a0a0a",
+          "textColor": "#ffffff",
+          "accentColor": "#e8e0d8",
+          "animations": ["pan", "ken-burns", "smooth-transition"],
+          "textPosition": "bottom-left",
+          "ctaStyle": "white-outline",
+          "transition": "slide-bold",
+          "overlayOpacity": 0.25
+        },
+        {
+          "id": "fashion-lifestyle",
+          "name": "Lifestyle",
+          "description": "Warm tones, parallax, soft transitions",
+          "bgColor": "#1a1614",
+          "textColor": "#e8e0d8",
+          "accentColor": "#c8b89a",
+          "animations": ["parallax", "cinematic-zoom", "fade"],
+          "textPosition": "top-center",
+          "ctaStyle": "warm-outline",
+          "transition": "cross-dissolve",
+          "overlayOpacity": 0.3
+        },
+        {
+          "id": "fashion-viral",
+          "name": "Viral",
+          "description": "High energy, zoom punch, bold colors",
+          "bgColor": "#0a0010",
+          "textColor": "#ffffff",
+          "accentColor": "#ff6b9d",
+          "animations": ["zoom-punch", "sparkle", "glow"],
+          "textPosition": "center",
+          "ctaStyle": "neon-pink",
+          "transition": "flash-cut",
+          "overlayOpacity": 0.35
+        }
+      ]
+    },
+    {
+      "id": "gadgets",
+      "label": "Gadgets",
+      "icon": "⚡",
+      "musicCategory": "energetic",
+      "colorPalette": ["#00d4ff", "#0a0f1a", "#1a2a3a", "#38bdf8"],
+      "fontStyle": "tech-modern",
+      "templates": [
+        {
+          "id": "gadgets-problem-solution",
+          "name": "Problem Solution",
+          "description": "Dark tech, blue accent, zoom reveal",
+          "bgColor": "#050a14",
+          "textColor": "#e0f0ff",
+          "accentColor": "#38bdf8",
+          "animations": ["cinematic-zoom", "blur-reveal", "glow"],
+          "textPosition": "center",
+          "ctaStyle": "blue-gradient",
+          "transition": "tech-reveal",
+          "overlayOpacity": 0.4
+        },
+        {
+          "id": "gadgets-wow-effect",
+          "name": "Wow Effect",
+          "description": "High contrast, sparkle, energetic pan",
+          "bgColor": "#000814",
+          "textColor": "#ffffff",
+          "accentColor": "#00d4ff",
+          "animations": ["sparkle", "pan", "zoom-punch"],
+          "textPosition": "bottom-center",
+          "ctaStyle": "cyan-glow",
+          "transition": "flash-cut",
+          "overlayOpacity": 0.45
+        },
+        {
+          "id": "gadgets-before-after",
+          "name": "Before After",
+          "description": "Split screen feel, smooth reveal",
+          "bgColor": "#0a0f1a",
+          "textColor": "#e0f0ff",
+          "accentColor": "#7c5cfc",
+          "animations": ["blur-reveal", "smooth-transition", "parallax"],
+          "textPosition": "top-right",
+          "ctaStyle": "purple-outline",
+          "transition": "split-reveal",
+          "overlayOpacity": 0.3
+        }
+      ]
+    },
+    {
+      "id": "home",
+      "label": "Home & Decor",
+      "icon": "🏡",
+      "musicCategory": "emotional",
+      "colorPalette": ["#d4c5a9", "#2a2018", "#8b7355", "#faf7f2"],
+      "fontStyle": "warm-serif",
+      "templates": [
+        {
+          "id": "home-cozy",
+          "name": "Cozy",
+          "description": "Warm tones, Ken Burns, soft fade",
+          "bgColor": "#1a1208",
+          "textColor": "#faf7f2",
+          "accentColor": "#d4c5a9",
+          "animations": ["ken-burns", "fade", "parallax"],
+          "textPosition": "bottom-center",
+          "ctaStyle": "warm-fill",
+          "transition": "cross-dissolve",
+          "overlayOpacity": 0.3
+        },
+        {
+          "id": "home-minimal",
+          "name": "Minimal",
+          "description": "Clean white, minimal pan, elegant",
+          "bgColor": "#faf7f2",
+          "textColor": "#2a2018",
+          "accentColor": "#8b7355",
+          "animations": ["pan", "smooth-transition", "fade"],
+          "textPosition": "left-center",
+          "ctaStyle": "earth-outline",
+          "transition": "slide-elegant",
+          "overlayOpacity": 0.1
+        },
+        {
+          "id": "home-luxury-living",
+          "name": "Luxury Living",
+          "description": "Dark gold, cinematic, sparkle",
+          "bgColor": "#0d0a05",
+          "textColor": "#faf7f2",
+          "accentColor": "#c9a84c",
+          "animations": ["cinematic-zoom", "glow", "sparkle"],
+          "textPosition": "center",
+          "ctaStyle": "gold-gradient",
+          "transition": "fade-elegant",
+          "overlayOpacity": 0.4
+        }
+      ]
+    },
+    {
+      "id": "fitness",
+      "label": "Fitness",
+      "icon": "💪",
+      "musicCategory": "energetic",
+      "colorPalette": ["#22c55e", "#0a1a0a", "#16a34a", "#f0fdf4"],
+      "fontStyle": "bold-impact",
+      "templates": [
+        {
+          "id": "fitness-power",
+          "name": "Power",
+          "description": "Dark green, zoom punch, bold text",
+          "bgColor": "#050f05",
+          "textColor": "#f0fdf4",
+          "accentColor": "#22c55e",
+          "animations": ["zoom-punch", "glow", "cinematic-zoom"],
+          "textPosition": "center",
+          "ctaStyle": "green-gradient",
+          "transition": "flash-cut",
+          "overlayOpacity": 0.4
+        },
+        {
+          "id": "fitness-transformation",
+          "name": "Transformation",
+          "description": "Before/after feel, energetic pan",
+          "bgColor": "#0a0a0a",
+          "textColor": "#ffffff",
+          "accentColor": "#84cc16",
+          "animations": ["pan", "blur-reveal", "smooth-transition"],
+          "textPosition": "bottom-left",
+          "ctaStyle": "lime-outline",
+          "transition": "split-reveal",
+          "overlayOpacity": 0.35
+        },
+        {
+          "id": "fitness-lifestyle",
+          "name": "Lifestyle",
+          "description": "Clean, motivational, Ken Burns",
+          "bgColor": "#0f1a0f",
+          "textColor": "#f0fdf4",
+          "accentColor": "#4ade80",
+          "animations": ["ken-burns", "parallax", "fade"],
+          "textPosition": "top-center",
+          "ctaStyle": "green-outline",
+          "transition": "cross-dissolve",
+          "overlayOpacity": 0.25
+        }
+      ]
+    },
+    {
+      "id": "pets",
+      "label": "Pet Products",
+      "icon": "🐾",
+      "musicCategory": "emotional",
+      "colorPalette": ["#fb923c", "#1a0f05", "#ea580c", "#fff7ed"],
+      "fontStyle": "friendly-round",
+      "templates": [
+        {
+          "id": "pets-happy",
+          "name": "Happy Pet",
+          "description": "Warm orange, playful pan, sparkle",
+          "bgColor": "#1a0a00",
+          "textColor": "#fff7ed",
+          "accentColor": "#fb923c",
+          "animations": ["pan", "sparkle", "smooth-transition"],
+          "textPosition": "bottom-center",
+          "ctaStyle": "orange-gradient",
+          "transition": "cross-dissolve",
+          "overlayOpacity": 0.3
+        },
+        {
+          "id": "pets-care",
+          "name": "Premium Care",
+          "description": "Clean, professional, Ken Burns",
+          "bgColor": "#faf5f0",
+          "textColor": "#1a0f05",
+          "accentColor": "#ea580c",
+          "animations": ["ken-burns", "fade", "parallax"],
+          "textPosition": "right-center",
+          "ctaStyle": "orange-outline",
+          "transition": "slide-clean",
+          "overlayOpacity": 0.1
+        },
+        {
+          "id": "pets-emotional",
+          "name": "Emotional Bond",
+          "description": "Warm, emotional, soft glow",
+          "bgColor": "#140a00",
+          "textColor": "#fff7ed",
+          "accentColor": "#fbbf24",
+          "animations": ["glow", "blur-reveal", "cinematic-zoom"],
+          "textPosition": "center",
+          "ctaStyle": "amber-fill",
+          "transition": "fade-elegant",
+          "overlayOpacity": 0.35
+        }
+      ]
+    },
+    {
+      "id": "baby",
+      "label": "Baby & Family",
+      "icon": "👶",
+      "musicCategory": "emotional",
+      "colorPalette": ["#93c5fd", "#0a1020", "#3b82f6", "#eff6ff"],
+      "fontStyle": "soft-round",
+      "templates": [
+        {
+          "id": "baby-tender",
+          "name": "Tender",
+          "description": "Soft blue, gentle fade, emotional",
+          "bgColor": "#050a14",
+          "textColor": "#eff6ff",
+          "accentColor": "#93c5fd",
+          "animations": ["fade", "blur-reveal", "parallax"],
+          "textPosition": "bottom-center",
+          "ctaStyle": "blue-soft",
+          "transition": "cross-dissolve",
+          "overlayOpacity": 0.25
+        },
+        {
+          "id": "baby-safe",
+          "name": "Safe & Secure",
+          "description": "Clean white, minimal, trust-building",
+          "bgColor": "#fafcff",
+          "textColor": "#0a1020",
+          "accentColor": "#3b82f6",
+          "animations": ["ken-burns", "smooth-transition", "pan"],
+          "textPosition": "left-center",
+          "ctaStyle": "blue-outline",
+          "transition": "slide-clean",
+          "overlayOpacity": 0.1
+        },
+        {
+          "id": "baby-family",
+          "name": "Family Love",
+          "description": "Warm, cinematic, emotional glow",
+          "bgColor": "#0a0a14",
+          "textColor": "#eff6ff",
+          "accentColor": "#818cf8",
+          "animations": ["cinematic-zoom", "glow", "ken-burns"],
+          "textPosition": "center",
+          "ctaStyle": "indigo-gradient",
+          "transition": "fade-elegant",
+          "overlayOpacity": 0.35
+        }
+      ]
+    }
+  ]
+}

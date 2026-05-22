@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Creative AI — Product Video Generator</title>
+  <link rel="stylesheet" href="styles.css" />
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Syne:wght@700;800&display=swap" rel="stylesheet" />
+</head>
+<body>
+
+  <!-- ===== HEADER ===== -->
+  <header class="header">
+    <div class="header__inner">
+      <div class="logo">
+        <span class="logo__icon">✦</span>
+        <span class="logo__text">Creative<span class="logo__accent">AI</span></span>
+      </div>
+      <nav class="header__nav">
+        <span class="badge badge--pro">PRO</span>
+        <span class="header__tagline">Product → Video in seconds</span>
+      </nav>
+    </div>
+  </header>
+
+  <!-- ===== MAIN APP ===== -->
+  <main class="app">
+
+    <!-- ===== STEP 1: MODE SELECTOR ===== -->
+    <section class="section" id="section-mode">
+      <h2 class="section__title">Select Mode</h2>
+      <div class="mode-selector">
+        <button class="mode-btn active" data-mode="single" id="btn-single">
+          <span class="mode-btn__icon">◈</span>
+          <span class="mode-btn__label">Single Creative</span>
+          <span class="mode-btn__desc">1 product → 1 video</span>
+        </button>
+        <button class="mode-btn" data-mode="batch" id="btn-batch">
+          <span class="mode-btn__icon">⊞</span>
+          <span class="mode-btn__label">Batch Creative</span>
+          <span class="mode-btn__desc">Multiple products → Multiple videos</span>
+        </button>
+      </div>
+    </section>
+
+    <!-- ===== STEP 2: UPLOAD ===== -->
+    <section class="section" id="section-upload">
+      <h2 class="section__title">
+        <span id="upload-title-single">Upload Product Images</span>
+        <span id="upload-title-batch" style="display:none">Upload Products (Batch)</span>
+      </h2>
+
+      <!-- Single Upload -->
+      <div id="upload-single">
+        <div class="upload-zone" id="drop-zone-single">
+          <div class="upload-zone__inner">
+            <div class="upload-zone__icon">⬆</div>
+            <p class="upload-zone__text">Drag & drop product images here</p>
+            <p class="upload-zone__sub">3–15 images · JPG, PNG, WEBP · Max 10MB each</p>
+            <label class="btn btn--outline" for="file-input-single">Browse Files</label>
+            <input type="file" id="file-input-single" accept="image/*" multiple hidden />
+          </div>
+        </div>
+        <div class="image-preview-grid" id="preview-grid-single"></div>
+        <p class="upload-counter" id="upload-counter-single">0 images selected</p>
+      </div>
+
+      <!-- Batch Upload -->
+      <div id="upload-batch" style="display:none">
+        <div class="batch-products" id="batch-products-list">
+          <!-- Products added dynamically -->
+        </div>
+        <button class="btn btn--outline" id="btn-add-product">+ Add Product</button>
+        <input type="file" id="file-input-batch" accept="image/*" multiple hidden />
+      </div>
+    </section>
+
+    <!-- ===== STEP 3: SETTINGS ===== -->
+    <section class="section" id="section-settings">
+      <h2 class="section__title">Creative Settings</h2>
+      <div class="settings-grid">
+
+        <!-- Country -->
+        <div class="field-group">
+          <label class="field-label" for="sel-country">Country</label>
+          <select class="field-select" id="sel-country">
+            <option value="BR">🇧🇷 Brazil</option>
+            <option value="US">🇺🇸 United States</option>
+            <option value="UK">🇬🇧 United Kingdom</option>
+            <option value="ES">🇪🇸 Spain</option>
+            <option value="MX">🇲🇽 Mexico</option>
+            <option value="FR">🇫🇷 France</option>
+            <option value="CA">🇨🇦 Canada</option>
+            <option value="DE">🇩🇪 Germany</option>
+          </select>
+        </div>
+
+        <!-- Language -->
+        <div class="field-group">
+          <label class="field-label" for="sel-language">Language</label>
+          <select class="field-select" id="sel-language">
+            <option value="pt-BR">Português (BR)</option>
+            <option value="en-US">English (US)</option>
+            <option value="en-UK">English (UK)</option>
+            <option value="es-ES">Español (ES)</option>
+            <option value="es-MX">Español (MX)</option>
+            <option value="fr-FR">Français</option>
+            <option value="de-DE">Deutsch</option>
+          </select>
+        </div>
+
+        <!-- Aspect Ratio -->
+        <div class="field-group">
+          <label class="field-label">Aspect Ratio</label>
+          <div class="ratio-selector">
+            <button class="ratio-btn active" data-ratio="9:16" data-w="1080" data-h="1920">
+              <span class="ratio-btn__shape ratio-btn__shape--916"></span>
+              <span>9:16</span>
+            </button>
+            <button class="ratio-btn" data-ratio="1:1" data-w="1080" data-h="1080">
+              <span class="ratio-btn__shape ratio-btn__shape--11"></span>
+              <span>1:1</span>
+            </button>
+            <button class="ratio-btn" data-ratio="4:5" data-w="1080" data-h="1350">
+              <span class="ratio-btn__shape ratio-btn__shape--45"></span>
+              <span>4:5</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Niche -->
+        <div class="field-group">
+          <label class="field-label" for="sel-niche">Niche</label>
+          <select class="field-select" id="sel-niche">
+            <option value="jewelry">Jewelry &amp; Accessories</option>
+            <option value="beauty">Beauty &amp; Skincare</option>
+            <option value="fashion">Fashion</option>
+            <option value="gadgets">Gadgets</option>
+            <option value="home">Home &amp; Decor</option>
+            <option value="fitness">Fitness</option>
+            <option value="pets">Pet Products</option>
+            <option value="baby">Baby &amp; Family</option>
+          </select>
+        </div>
+
+        <!-- Creative Style (Template) -->
+        <div class="field-group">
+          <label class="field-label" for="sel-template">Creative Style</label>
+          <select class="field-select" id="sel-template">
+            <!-- Populated dynamically based on niche -->
+          </select>
+        </div>
+
+        <!-- Duration -->
+        <div class="field-group">
+          <label class="field-label" for="sel-duration">Duration</label>
+          <select class="field-select" id="sel-duration">
+            <option value="short">Short (8–12s)</option>
+            <option value="medium">Medium (12–18s)</option>
+          </select>
+        </div>
+
+        <!-- Music Style -->
+        <div class="field-group">
+          <label class="field-label" for="sel-music">Music Style</label>
+          <select class="field-select" id="sel-music">
+            <option value="auto">Auto (by niche)</option>
+            <option value="luxury">Luxury</option>
+            <option value="emotional">Emotional</option>
+            <option value="premium">Premium</option>
+            <option value="energetic">Energetic</option>
+            <option value="viral">Viral</option>
+            <option value="ugc">UGC</option>
+          </select>
+        </div>
+
+        <!-- Product Name (optional) -->
+        <div class="field-group field-group--full">
+          <label class="field-label" for="inp-product-name">Product Name <span class="field-optional">(optional)</span></label>
+          <input type="text" class="field-input" id="inp-product-name" placeholder="e.g. Gold Minimalist Ring" maxlength="60" />
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ===== STEP 4: COPY PREVIEW ===== -->
+    <section class="section" id="section-copy">
+      <h2 class="section__title">Generated Copy Preview</h2>
+      <div class="copy-preview" id="copy-preview">
+        <div class="copy-card">
+          <span class="copy-card__tag">0–2s · Attention</span>
+          <p class="copy-card__text" id="copy-attention">—</p>
+        </div>
+        <div class="copy-card">
+          <span class="copy-card__tag">2–5s · Interest</span>
+          <p class="copy-card__text" id="copy-interest">—</p>
+        </div>
+        <div class="copy-card">
+          <span class="copy-card__tag">5–8s · Desire</span>
+          <p class="copy-card__text" id="copy-desire">—</p>
+        </div>
+        <div class="copy-card">
+          <span class="copy-card__tag">8–12s · Action (CTA)</span>
+          <p class="copy-card__text" id="copy-cta">—</p>
+        </div>
+        <button class="btn btn--ghost btn--sm" id="btn-regenerate-copy">↺ Regenerate Copy</button>
+      </div>
+    </section>
+
+    <!-- ===== GENERATE BUTTON ===== -->
+    <section class="section section--center" id="section-generate">
+      <button class="btn btn--primary btn--xl" id="btn-generate">
+        <span class="btn__icon">✦</span>
+        Generate Creative
+      </button>
+      <p class="generate-hint">Processing happens entirely in your browser. No data is uploaded to any server.</p>
+    </section>
+
+    <!-- ===== PROGRESS ===== -->
+    <section class="section" id="section-progress" style="display:none">
+      <h2 class="section__title">Rendering Creative</h2>
+
+      <!-- Single progress -->
+      <div id="progress-single">
+        <div class="progress-bar-wrap">
+          <div class="progress-bar" id="progress-bar-fill" style="width:0%"></div>
+        </div>
+        <p class="progress-status" id="progress-status">Initializing…</p>
+        <div class="progress-steps" id="progress-steps">
+          <div class="progress-step" data-step="upload">Loading images</div>
+          <div class="progress-step" data-step="template">Selecting template</div>
+          <div class="progress-step" data-step="copy">Generating copy</div>
+          <div class="progress-step" data-step="animation">Applying animations</div>
+          <div class="progress-step" data-step="audio">Adding music</div>
+          <div class="progress-step" data-step="render">Rendering frames</div>
+          <div class="progress-step" data-step="export">Exporting MP4</div>
+        </div>
+      </div>
+
+      <!-- Batch queue -->
+      <div id="progress-batch" style="display:none">
+        <div class="batch-queue" id="batch-queue-list">
+          <!-- Queue items added dynamically -->
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== PREVIEW & DOWNLOAD ===== -->
+    <section class="section" id="section-result" style="display:none">
+      <h2 class="section__title">Your Creative is Ready!</h2>
+      <div class="result-area">
+        <div class="video-preview-wrap" id="video-preview-wrap">
+          <canvas id="preview-canvas"></canvas>
+          <video id="preview-video" controls playsinline style="display:none"></video>
+        </div>
+        <div class="result-actions">
+          <button class="btn btn--primary btn--lg" id="btn-download">
+            ⬇ Download Creative
+          </button>
+          <button class="btn btn--outline btn--lg" id="btn-new-creative">
+            + New Creative
+          </button>
+        </div>
+        <!-- Batch results list -->
+        <div class="batch-results" id="batch-results" style="display:none">
+          <h3 class="batch-results__title">Batch Results</h3>
+          <div id="batch-results-list"></div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ===== FOOTER ===== -->
+  <footer class="footer">
+    <p>Creative AI — 100% Browser-based · No server required · Export anywhere</p>
+  </footer>
+
+  <!-- ===== TOAST NOTIFICATION ===== -->
+  <div class="toast" id="toast"></div>
+
+  <!-- ===== ENGINE MODULES ===== -->
+  <script src="engine/upload.js"></script>
+  <script src="engine/templateSelector.js"></script>
+  <script src="engine/copyEngine.js"></script>
+  <script src="engine/animationEngine.js"></script>
+  <script src="engine/audioEngine.js"></script>
+  <script src="engine/renderEngine.js"></script>
+  <script src="engine/batchQueue.js"></script>
+  <script src="engine/exportEngine.js"></script>
+
+  <!-- ===== MAIN APP ===== -->
+  <script src="app.js"></script>
+
+</body>
+</html>

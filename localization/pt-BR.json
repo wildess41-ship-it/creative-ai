@@ -1,0 +1,46 @@
+{
+  "code": "pt-BR",
+  "name": "Português (Brasil)",
+  "country": "BR",
+  "hooks": {
+    "jewelry":  ["Brilhe como nunca antes", "Ela vai te notar", "Luxo que você merece", "Presente perfeito aqui", "Elegância sem igual"],
+    "beauty":   ["Sua pele vai agradecer", "Transformação real em dias", "Segredo das famosas revelado", "Pele perfeita começa aqui", "Resultado que você vai amar"],
+    "fashion":  ["Estilo que para o feed", "Vista-se para conquistar", "Tendência que chegou", "Moda que faz sentido", "Seu look favorito aqui"],
+    "gadgets":  ["Isso vai mudar sua vida", "Tecnologia que impressiona", "Por que não tinha antes?", "Gadget do momento aqui", "Inovação na sua mão"],
+    "home":     ["Sua casa merece isso", "Transforme seu espaço hoje", "Decoração que encanta", "Lar dos sonhos começa aqui", "Ambiente perfeito criado"],
+    "fitness":  ["Resultados reais chegaram", "Seu corpo vai agradecer", "Treino que funciona de verdade", "Forma que você quer aqui", "Evolução começa agora"],
+    "pets":     ["Seu pet vai amar isso", "Cuidado que ele merece", "Felicidade em 4 patas", "Pet feliz, dono feliz", "Amor em forma de produto"],
+    "baby":     ["Seu bebê merece o melhor", "Cuidado com amor e ciência", "Segurança que você precisa", "Família feliz começa aqui", "Bebê protegido, mãe tranquila"]
+  },
+  "interest": {
+    "jewelry":  ["Peça artesanal com acabamento premium", "Design exclusivo que encanta à primeira vista", "Joalheria fina para momentos especiais", "Brilho real que dura para sempre"],
+    "beauty":   ["Fórmula dermatologicamente testada e aprovada", "Ingredientes naturais com tecnologia avançada", "Resultados visíveis em apenas 7 dias", "Desenvolvido por especialistas em pele"],
+    "fashion":  ["Tecido premium com caimento perfeito", "Peça versátil para qualquer ocasião", "Design exclusivo feito para durar", "Moda consciente com estilo único"],
+    "gadgets":  ["Tecnologia de ponta no seu dia a dia", "Compatível com todos os dispositivos modernos", "Bateria que dura o dia inteiro", "Design ergonômico e intuitivo"],
+    "home":     ["Material premium com durabilidade garantida", "Design que combina com qualquer ambiente", "Fácil instalação sem complicação", "Qualidade que se vê e se sente"],
+    "fitness":  ["Desenvolvido com atletas profissionais", "Material respirável de alta performance", "Suporte ideal para treinos intensos", "Tecnologia que potencializa resultados"],
+    "pets":     ["Aprovado por veterinários especializados", "Material seguro e atóxico certificado", "Conforto máximo para seu companheiro", "Qualidade que seu pet sente"],
+    "baby":     ["Testado e aprovado por pediatras", "Material hipoalergênico e certificado", "Segurança máxima para seu bebê", "Desenvolvido com amor e ciência"]
+  },
+  "desire": {
+    "jewelry":  ["Sinta-se única todos os dias", "Presente que ela nunca esquece", "Luxo acessível para você"],
+    "beauty":   ["Pele radiante que você merece", "Confiança que vem de dentro", "Beleza que impressiona todos"],
+    "fashion":  ["Estilo que define quem você é", "Look perfeito para qualquer hora", "Moda que faz você brilhar"],
+    "gadgets":  ["Produtividade que você vai sentir", "Tecnologia que simplifica tudo", "Inovação no seu bolso agora"],
+    "home":     ["Ambiente que inspira e relaxa", "Casa que você sempre sonhou", "Conforto que você merece"],
+    "fitness":  ["Corpo que você sempre quis", "Evolução real e consistente", "Saúde que transforma sua vida"],
+    "pets":     ["Pet mais feliz e saudável", "Vínculo que se fortalece", "Cuidado que ele merece"],
+    "baby":     ["Bebê seguro e confortável", "Paz de espírito para a família", "Cuidado que faz diferença"]
+  },
+  "cta": {
+    "jewelry":  ["Compre agora", "Garanta o seu", "Peça hoje", "Aproveite já"],
+    "beauty":   ["Experimente agora", "Garanta o seu", "Compre hoje", "Peça já"],
+    "fashion":  ["Compre agora", "Vista já", "Garanta o seu", "Peça hoje"],
+    "gadgets":  ["Compre agora", "Garanta o seu", "Peça hoje", "Aproveite já"],
+    "home":     ["Compre agora", "Transforme hoje", "Garanta o seu", "Peça já"],
+    "fitness":  ["Comece agora", "Garanta o seu", "Peça hoje", "Evolua já"],
+    "pets":     ["Compre agora", "Garanta o seu", "Peça hoje", "Cuide já"],
+    "baby":     ["Compre agora", "Garanta o seu", "Peça hoje", "Proteja já"]
+  },
+  "urgency": ["Últimas unidades!", "Oferta por tempo limitado", "Estoque acabando", "Só hoje com desconto", "Não perca essa chance"]
+}

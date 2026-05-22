@@ -1,0 +1,46 @@
+{
+  "code": "fr-FR",
+  "name": "Français",
+  "country": "FR",
+  "hooks": {
+    "jewelry":  ["Elle ne l'oubliera jamais", "Le luxe qu'elle mérite", "Le cadeau parfait est ici", "Brillez différemment aujourd'hui", "L'élégance redéfinie"],
+    "beauty":   ["Votre peau vous remerciera", "Des résultats réels en jours", "Le secret est enfin révélé", "La peau parfaite commence ici", "Rayonnez comme jamais"],
+    "fashion":  ["Stoppez le scroll instantanément", "Habillez-vous pour conquérir", "La tendance est arrivée", "La mode qui a du sens", "Votre look préféré est ici"],
+    "gadgets":  ["Cela va tout changer", "La tech qui fonctionne vraiment", "Pourquoi ça n'existait pas avant?", "Le gadget du moment", "L'innovation entre vos mains"],
+    "home":     ["Votre maison mérite ça", "Transformez votre espace aujourd'hui", "La déco qui épate vos invités", "La maison de rêve commence ici", "L'upgrade que vous attendiez"],
+    "fitness":  ["Les vrais résultats sont là", "Votre corps vous remerciera", "L'entraînement qui fonctionne", "Le corps que vous voulez est ici", "L'évolution commence maintenant"],
+    "pets":     ["Votre animal va adorer", "Les soins qu'il mérite", "Animal heureux, maître heureux", "Approuvé queue comprise", "L'amour en forme de produit"],
+    "baby":     ["Votre bébé mérite le meilleur", "Des soins soutenus par la science", "La sécurité en laquelle vous pouvez avoir confiance", "Famille heureuse commence ici", "La tranquillité d'esprit garantie"]
+  },
+  "interest": {
+    "jewelry":  ["Artisanat avec finition premium", "Design exclusif, coup de foudre assuré", "Joaillerie fine pour les moments spéciaux", "Éclat réel qui dure toujours"],
+    "beauty":   ["Testé et approuvé par des dermatologues", "Ingrédients naturels et technologie avancée", "Résultats visibles en seulement 7 jours", "Développé par des experts en soins de la peau"],
+    "fashion":  ["Tissu premium avec tombé parfait", "Pièce polyvalente pour toutes les occasions", "Design exclusif conçu pour durer", "Mode consciente avec style unique"],
+    "gadgets":  ["Technologie de pointe au quotidien", "Compatible avec tous les appareils modernes", "Batterie toute la journée garantie", "Design ergonomique et intuitif"],
+    "home":     ["Matériaux premium avec durabilité garantie", "Design qui s'adapte à tout intérieur", "Installation facile sans complication", "Qualité que l'on voit et ressent"],
+    "fitness":  ["Développé avec des athlètes professionnels", "Matériau respirant haute performance", "Support idéal pour les entraînements intenses", "Technologie qui amplifie vos résultats"],
+    "pets":     ["Approuvé par des vétérinaires spécialisés", "Matériau sûr et non toxique certifié", "Confort maximum pour votre compagnon", "Qualité que votre animal ressent"],
+    "baby":     ["Testé et approuvé par des pédiatres", "Matériau hypoallergénique certifié", "Sécurité maximale pour votre bébé", "Développé avec amour et science"]
+  },
+  "desire": {
+    "jewelry":  ["Sentez-vous unique chaque jour", "Un cadeau qu'elle n'oubliera jamais", "Le luxe accessible rien que pour vous"],
+    "beauty":   ["La peau radieuse que vous méritez", "La confiance qui vient de l'intérieur", "La beauté qui impressionne tout le monde"],
+    "fashion":  ["Le style qui définit qui vous êtes", "Le look parfait pour chaque moment", "La mode qui vous fait briller"],
+    "gadgets":  ["La productivité que vous ressentirez vraiment", "La technologie qui simplifie tout", "L'innovation dans votre poche maintenant"],
+    "home":     ["Un espace qui inspire et détend", "La maison dont vous avez toujours rêvé", "Le confort que vous méritez"],
+    "fitness":  ["Le corps que vous avez toujours voulu", "Une évolution réelle et constante", "La santé qui transforme votre vie"],
+    "pets":     ["Un animal plus heureux et en meilleure santé", "Un lien qui se renforce chaque jour", "Les soins qu'il mérite vraiment"],
+    "baby":     ["Bébé en sécurité et à l'aise", "La tranquillité d'esprit pour toute la famille", "Des soins qui font vraiment la différence"]
+  },
+  "cta": {
+    "jewelry":  ["Achetez maintenant", "Obtenez le vôtre", "Commandez aujourd'hui", "Profitez-en"],
+    "beauty":   ["Essayez maintenant", "Obtenez le vôtre", "Achetez aujourd'hui", "Commandez"],
+    "fashion":  ["Achetez maintenant", "Portez-le aujourd'hui", "Obtenez le vôtre", "Commandez"],
+    "gadgets":  ["Achetez maintenant", "Obtenez le vôtre", "Commandez aujourd'hui", "Prenez-le"],
+    "home":     ["Achetez maintenant", "Transformez aujourd'hui", "Obtenez le vôtre", "Commandez"],
+    "fitness":  ["Commencez maintenant", "Obtenez le vôtre", "Commandez aujourd'hui", "Évoluez"],
+    "pets":     ["Achetez maintenant", "Obtenez le vôtre", "Commandez aujourd'hui", "Prenez soin"],
+    "baby":     ["Achetez maintenant", "Obtenez le vôtre", "Commandez aujourd'hui", "Protégez"]
+  },
+  "urgency": ["Dernières unités disponibles!", "Offre à durée limitée", "Stock en cours d'épuisement", "Aujourd'hui seulement", "Ne manquez pas ça"]
+}

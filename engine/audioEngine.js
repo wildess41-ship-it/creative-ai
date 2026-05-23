@@ -205,6 +205,76 @@ const AudioEngine = (() => {
     });
   }
 
+   // ── Voice narration (Web Speech API) ──
+function speakCopy(copy, language = 'en-UK') {
+
+  if (!('speechSynthesis' in window)) {
+    console.warn('[AudioEngine] Speech API not supported');
+    return;
+  }
+
+  speechSynthesis.cancel();
+
+  const text = [
+    copy.attention,
+    copy.interest,
+    copy.desire,
+    copy.cta
+  ]
+  .filter(Boolean)
+  .join('. ');
+
+  const utterance =
+    new SpeechSynthesisUtterance(text);
+
+  // Language map
+  const langMap = {
+    'en-UK': 'en-GB',
+    'en-US': 'en-US',
+    'pt-BR': 'pt-BR',
+    'fr-FR': 'fr-FR',
+    'es-ES': 'es-ES',
+    'es-MX': 'es-MX',
+    'de-DE': 'de-DE'
+  };
+
+  utterance.lang =
+    langMap[language] || 'en-GB';
+
+  utterance.rate = 0.92;
+  utterance.pitch = 1;
+  utterance.volume = 1;
+
+  // Try premium voices
+  const voices =
+    speechSynthesis.getVoices();
+
+  const preferred =
+    voices.find(v =>
+      v.lang.includes(
+        utterance.lang
+      )
+    );
+
+  if (preferred) {
+    utterance.voice =
+      preferred;
+  }
+
+  speechSynthesis.speak(
+    utterance
+  );
+}
+
+// ── Stop voice narration ──
+function stopVoice() {
+  if (
+    'speechSynthesis' in window
+  ) {
+    speechSynthesis.cancel();
+  }
+}
+
   // ── Public API ──
   return {
     resolveCategory,
@@ -215,8 +285,13 @@ const AudioEngine = (() => {
     stopPreview,
     prepareForExport,
     bufferToFloat32,
-    NICHE_MUSIC_MAP,
-    MUSIC_LIBRARY
-  };
+
+  // Voice
+  speakCopy,
+  stopVoice,
+
+  NICHE_MUSIC_MAP,
+  MUSIC_LIBRARY
+};
 
 })();

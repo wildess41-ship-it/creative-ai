@@ -745,6 +745,33 @@ async function init() {
   updateUploadCounter();
   renderBatchProductsList();
 
+  // ── Voice narration UI ──
+const voiceMode =
+  document.getElementById('voice-mode');
+
+const customScriptWrap =
+  document.getElementById('custom-script-wrap');
+
+if (voiceMode && customScriptWrap) {
+
+  voiceMode.addEventListener(
+    'change',
+    () => {
+
+      if (voiceMode.value === 'custom') {
+
+        customScriptWrap.style.display =
+          'block';
+
+      } else {
+
+        customScriptWrap.style.display =
+          'none';
+      }
+    }
+  );
+}
+
   console.log('[Creative AI] Initialized successfully.');
 }
 

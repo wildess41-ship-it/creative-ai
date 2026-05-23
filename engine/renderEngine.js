@@ -31,30 +31,44 @@ const RenderEngine = (() => {
   // ── Draw text with shadow and wrapping ──
   function drawText(ctx, text, x, y, options = {}) {
     const {
-      font      = "'Inter', sans-serif",
-      size      = 48,
-      color     = '#ffffff',
-      align     = 'center',
-      maxWidth  = 900,
-      shadow    = true,
-      weight    = '700',
+      font       = "'Inter', sans-serif",
+      size       = 48,
+      color      = '#ffffff',
+      align      = 'center',
+      maxWidth   = 900,
+      shadow     = true,
+      weight     = '700',
       lineHeight = 1.25,
-      opacity   = 1
+      opacity    = 1,
+      scale      = 1,
+      glow       = true,
+      accent     = '#D4AF37'
     } = options;
 
     ctx.save();
     ctx.globalAlpha = opacity;
+
+    // Smooth kinetic scale
+    ctx.translate(x, y);
+    ctx.scale(scale, scale);
+    ctx.translate(-x, -y);
+
     ctx.font = `${weight} ${size}px ${font}`;
     ctx.textAlign = align;
     ctx.textBaseline = 'middle';
     ctx.fillStyle = color;
 
-    if (shadow) {
-      ctx.shadowColor = 'rgba(0,0,0,0.8)';
-      ctx.shadowBlur  = 12;
-      ctx.shadowOffsetX = 2;
-      ctx.shadowOffsetY = 2;
-    }
+   if (shadow) {
+    ctx.shadowColor = 'rgba(0,0,0,0.55)';
+    ctx.shadowBlur = 22;
+    ctx.shadowOffsetX = 0;
+    ctx.shadowOffsetY = 4;
+}
+
+   if (glow) {
+    ctx.shadowColor = accent;
+    ctx.shadowBlur = 24;
+}
 
     // Word wrap
     const words = text.split(' ');
@@ -281,23 +295,46 @@ if (transitionProgress > 0 && images[nextImageIndex]) {
 
     // ── 8. Copy text ──
     const textX = resolveTextX(position, canvasW);
-    const textY = resolveTextY(position, canvasH);
+    const textY = canvasH * 0.58;
     const safeMaxW = canvasW * 0.85;
 
     if (copyPhase === 'attention' && copy.attention) {
       drawText(ctx, copy.attention, textX, textY, {
-        font: fontStack, size: sizes.hook, color: colors.text,
-        align: position.align, maxWidth: safeMaxW, opacity: copyOpacity, weight: '800'
+        font: fontStack,
+        size: sizes.hook,
+        color: '#FFFFFF',
+        align: position.align,
+        maxWidth: safeMaxW,
+        opacity: copyOpacity,
+        weight: '900',
+        scale: 0.96 + (copyOpacity * 0.08),
+        glow: true,
+        accent: '#D4AF37'
       });
     } else if (copyPhase === 'interest' && copy.interest) {
       drawText(ctx, copy.interest, textX, textY, {
-        font: fontStack, size: sizes.body, color: colors.text,
-        align: position.align, maxWidth: safeMaxW, opacity: copyOpacity, weight: '600'
+        font: fontStack,
+        size: sizes.body,
+        color: '#F5F5F5',
+        align: position.align,
+        maxWidth: safeMaxW,
+        opacity: copyOpacity,
+        weight: '700',
+        scale: 0.98 + (copyOpacity * 0.04),
+        glow: false
       });
     } else if (copyPhase === 'desire' && copy.desire) {
       drawText(ctx, copy.desire, textX, textY, {
-        font: fontStack, size: sizes.body, color: colors.accent,
-        align: position.align, maxWidth: safeMaxW, opacity: copyOpacity, weight: '700'
+        font: fontStack,
+        size: sizes.body,
+        color: '#F5D061',
+        align: position.align,
+        maxWidth: safeMaxW,
+        opacity: copyOpacity,
+        weight: '800',
+        scale: 0.97 + (copyOpacity * 0.06),
+        glow: true,
+        accent: '#D4AF37'
       });
     } else if (copyPhase === 'cta' && copy.cta) {
       // CTA button

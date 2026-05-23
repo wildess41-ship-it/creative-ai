@@ -375,12 +375,39 @@ async function generateSingle() {
 
     // ── Step 3: Generate copy ──
     setProgress(0.25, 'Generating copy…', 'copy');
-    const copy = await CopyEngine.generateAIDA(
-      AppState.niche,
-      AppState.country,
-      AppState.language,
-      AppState.productName
-    );
+    let copy;
+
+const voiceMode =
+  document.getElementById('voice-mode')?.value;
+
+const customScript =
+  document.getElementById('custom-script')?.value?.trim();
+
+if (
+  voiceMode === 'custom' &&
+  customScript
+) {
+
+  const lines = customScript
+    .split('\n')
+    .filter(line => line.trim() !== '');
+
+  copy = {
+    attention: lines[0] || '—',
+    interest:  lines[1] || '—',
+    desire:    lines[2] || '—',
+    cta:       lines[3] || '—'
+  };
+
+} else {
+
+  copy = await CopyEngine.generateAIDA(
+    AppState.niche,
+    AppState.country,
+    AppState.language,
+    AppState.productName
+  );
+}
     AppState.currentCopy = copy;
     displayCopy(copy);
     await delay(200);

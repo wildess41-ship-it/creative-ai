@@ -49,6 +49,35 @@ const CopyEngine = (() => {
     return arr[Math.floor(Math.random() * arr.length)];
   }
 
+// ── Smart emotional copy by niche + country ──
+function getSmartCopyProfile(nicheId, country) {
+
+  const profiles = {
+
+    jewelry: {
+      UK: 'luxury',
+      US: 'confidence',
+      BR: 'romantic',
+      FR: 'elegant',
+      DE: 'premium'
+    },
+
+    beauty: {
+      UK: 'confidence',
+      US: 'transformation',
+      BR: 'beauty'
+    },
+
+    fashion: {
+      UK: 'style',
+      US: 'confidence',
+      BR: 'viral'
+    }
+  };
+
+  return profiles[nicheId]?.[country] || 'premium';
+}
+
   // ── Generate AIDA copy for a niche ──
   async function generateAIDA(nicheId, country, language, productName) {
     const localeCode = resolveLocale(country, language);
@@ -75,11 +104,53 @@ const CopyEngine = (() => {
     const urgency  = locale.urgency           || [];
 
     // Build AIDA copy
-    let attention = pick(hooks);
-    let interestText = pick(interest);
-    let desireText = pick(desire);
-    let ctaText = pick(cta);
+    const profile =
+  getSmartCopyProfile(
+    nicheId,
+    country
+  );
 
+let attention = pick(hooks);
+let interestText = pick(interest);
+let desireText = pick(desire);
+let ctaText = pick(cta);
+
+// Jewelry UK premium override
+if (
+  nicheId === 'jewelry' &&
+  profile === 'luxury'
+) {
+
+  const premiumHooks = [
+    "She won't stop wearing it.",
+    "A gift she'll never forget.",
+    "Everyone keeps asking about it.",
+    "The detail changes everything."
+  ];
+
+  const premiumInterest = [
+    "Elegant enough for every moment.",
+    "Luxury without the luxury price.",
+    "Crafted to stand out beautifully."
+  ];
+
+  const premiumDesire = [
+    "Elegant. Premium. Unforgettable.",
+    "Made to be noticed.",
+    "Luxury you can actually wear daily."
+  ];
+
+  const premiumCTA = [
+    "Get yours today",
+    "Shop now",
+    "Limited stock"
+  ];
+
+  attention = pick(premiumHooks);
+  interestText = pick(premiumInterest);
+  desireText = pick(premiumDesire);
+  ctaText = pick(premiumCTA);
+}
     // Inject product name if provided
     if (productName) {
       // Optionally append product name to desire text

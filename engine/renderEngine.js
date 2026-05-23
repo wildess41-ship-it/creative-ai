@@ -207,28 +207,64 @@ const RenderEngine = (() => {
     ctx.fillStyle = colors.bg;
     ctx.fillRect(0, 0, canvasW, canvasH);
 
-    // ── 3. Draw current image with animation ──
+    // ── 3. Draw current image with smart animation ──
     if (images[currentImageIndex]) {
-      const anim = template.animations[currentImageIndex % template.animations.length];
-      const preset = config.animations.find(a => a.id === anim)?.preset;
-      AnimationEngine.applyImageAnimation(
-        ctx, images[currentImageIndex].img,
-        canvasW, canvasH, anim, imageProgress, preset, time
-      );
-    }
 
-    // ── 4. Transition overlay (cross-fade to next image) ──
-    if (transitionProgress > 0 && images[nextImageIndex]) {
-      const nextAnim = template.animations[nextImageIndex % template.animations.length];
-      const nextPreset = config.animations.find(a => a.id === nextAnim)?.preset;
-      ctx.save();
-      ctx.globalAlpha = transitionProgress;
-      AnimationEngine.applyImageAnimation(
-        ctx, images[nextImageIndex].img,
-        canvasW, canvasH, nextAnim, 0, nextPreset, time
-      );
-      ctx.restore();
-    }
+    const smartAnimation =
+      config.animations[
+        currentImageIndex % config.animations.length
+     ];
+
+  const anim = 
+    smartAnimation?.id || 'cinematic-zoom';
+
+  const preset = 
+    smartAnimation?.preset || null;
+
+  AnimationEngine.applyImageAnimation(
+    ctx,
+    images[currentImageIndex].img,
+    canvasW,
+    canvasH,
+    anim,
+    imageProgress,
+    preset,
+    time
+  );
+}
+
+    // ── 4. Smart transition overlay ──
+if (transitionProgress > 0 && images[nextImageIndex]) {
+
+  const smartNext =
+    config.animations[
+      nextImageIndex % config.animations.length
+    ];
+
+  const nextAnim =
+    smartNext?.id || 'cinematic-zoom';
+
+  const nextPreset =
+    smartNext?.preset || null;
+
+  ctx.save();
+
+  ctx.globalAlpha =
+    transitionProgress * 0.9;
+
+  AnimationEngine.applyImageAnimation(
+    ctx,
+    images[nextImageIndex].img,
+    canvasW,
+    canvasH,
+    nextAnim,
+    0,
+    nextPreset,
+    time
+  );
+
+  ctx.restore();
+}
 
     // ── 5. Dark gradient overlay ──
     AnimationEngine.drawGradientOverlay(ctx, canvasW, canvasH, colors.bg, template.overlayOpacity + 0.3);

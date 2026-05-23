@@ -379,12 +379,40 @@ if (transitionProgress > 0 && images[nextImageIndex]) {
   }
 
   // ── Determine copy phase from time ──
-  function getCopyPhase(currentTimeSec) {
-    if (currentTimeSec < 2)  return 'attention';
-    if (currentTimeSec < 5)  return 'interest';
-    if (currentTimeSec < 8)  return 'desire';
-    return 'cta';
-  }
+  function getCopyPhase(
+  currentTimeSec,
+  totalDurationSec,
+  copy
+) {
+
+  const phases = [];
+
+  if (copy.attention)
+    phases.push('attention');
+
+  if (copy.interest)
+    phases.push('interest');
+
+  if (copy.desire)
+    phases.push('desire');
+
+  if (copy.cta)
+    phases.push('cta');
+
+  const phaseDuration =
+    totalDurationSec / phases.length;
+
+  const phaseIndex =
+    Math.min(
+      Math.floor(
+        currentTimeSec /
+        phaseDuration
+      ),
+      phases.length - 1
+    );
+
+  return phases[phaseIndex];
+}
 
   // ── Calculate copy opacity (fade in/out) ──
   function getCopyOpacity(currentTimeSec) {
@@ -454,7 +482,7 @@ if (transitionProgress > 0 && images[nextImageIndex]) {
         transitionProgress,
         imageProgress,
         copy,
-        copyPhase: getCopyPhase(currentSec),
+        copyPhase: getCopyPhase(currentSec, totalMs / 1000, copy),
         copyOpacity: getCopyOpacity(currentSec),
         config,
         time: timestamp,
@@ -517,7 +545,7 @@ if (transitionProgress > 0 && images[nextImageIndex]) {
         transitionProgress,
         imageProgress,
         copy,
-        copyPhase: getCopyPhase(currentSec),
+        copyPhase: getCopyPhase(currentSec, totalMs / 1000, copy),
         copyOpacity: getCopyOpacity(currentSec),
         config,
         time: elapsed,

@@ -85,7 +85,7 @@ const AnimationEngine = (() => {
   // ── Draw image with cinematic zoom ──
   function drawCinematicZoom(ctx, img, canvasW, canvasH, progress, preset) {
     const startScale = preset?.startScale || 1.08;
-    const endScale   = preset?.endScale   || 1.28;
+    const endScale   = preset?.endScale   || 1.22;
     const t = ease(preset?.easing || 'ease-out', progress);
     const scale = startScale + (endScale - startScale) * t;
     drawImageCover(ctx, img, canvasW, canvasH, scale, 0, 0);
@@ -94,7 +94,7 @@ const AnimationEngine = (() => {
   // ── Draw image with pan ──
   function drawPan(ctx, img, canvasW, canvasH, progress, preset) {
     const direction = preset?.direction || 'right';
-    const distance  = preset?.distance  || 85;
+    const distance  = preset?.distance  || 60;
     const t = ease(preset?.easing || 'ease-in-out', progress);
 
     let offsetX = 0, offsetY = 0;
@@ -108,7 +108,7 @@ const AnimationEngine = (() => {
 
   // ── Draw image with parallax (fake depth) ──
   function drawParallax(ctx, img, canvasW, canvasH, progress, preset) {
-    const depth = preset?.depth || 0.75;
+    const depth = preset?.depth || 0.55;
     const t = ease(preset?.easing || 'ease-in-out', progress);
     const offsetX = Math.sin(t * Math.PI * 2) * depth * 20;
     const offsetY = Math.cos(t * Math.PI) * depth * 10;
@@ -234,7 +234,7 @@ const AnimationEngine = (() => {
         drawImageCover(ctx, img, canvasW, canvasH);
         break;
       case 'zoom-punch': {
-        const punch = 1 + Math.sin(progress * Math.PI) * 0.16;
+        const punch = 1 + Math.sin(progress * Math.PI) * 0.11;
         drawImageCover(ctx, img, canvasW, canvasH, punch, 0, 0);
         break;
       }

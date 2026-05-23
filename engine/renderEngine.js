@@ -75,6 +75,21 @@ const RenderEngine = (() => {
     const lines = [];
     let currentLine = '';
 
+   // Smart font balancing
+   const textLength = text.length;
+
+   let adjustedSize = size;
+
+ if (textLength < 18) {
+  adjustedSize *= 0.82;
+} else if (textLength < 30) {
+  adjustedSize *= 0.92;
+} else if (textLength > 45) {
+  adjustedSize *= 1.08;
+}
+
+ctx.font = `${weight} ${adjustedSize}px ${font}`;
+
     words.forEach(word => {
       const testLine = currentLine ? `${currentLine} ${word}` : word;
       const metrics  = ctx.measureText(testLine);
@@ -87,11 +102,11 @@ const RenderEngine = (() => {
     });
     lines.push(currentLine);
 
-    const totalHeight = lines.length * size * lineHeight;
+    const totalHeight = lines.length * adjustedSize * lineHeight;
     const startY = y - totalHeight / 2;
 
     lines.forEach((line, i) => {
-      ctx.fillText(line, x, startY + i * size * lineHeight + size / 2);
+      ctx.fillText(line, x, startY + i * adjustedSize * lineHeight + adjustedSize / 2);
     });
 
     ctx.restore();

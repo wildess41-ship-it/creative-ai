@@ -322,7 +322,7 @@ if (transitionProgress > 0 && images[nextImageIndex]) {
         maxWidth: safeMaxW,
         opacity: copyOpacity,
         weight: '900',
-        scale: 0.96 + (copyOpacity * 0.08),
+        scale: 0.88 + (copyOpacity * 0.18) + (Math.sin(time * 0.002) * 0.015),
         glow: true,
         accent: '#D4AF37'
       });
@@ -335,7 +335,7 @@ if (transitionProgress > 0 && images[nextImageIndex]) {
         maxWidth: safeMaxW,
         opacity: copyOpacity,
         weight: '700',
-        scale: 0.98 + (copyOpacity * 0.04),
+        scale: 0.94 + (copyOpacity * 0.10) + (Math.sin(time * 0.0015) * 0.01),
         glow: false
       });
     } else if (copyPhase === 'desire' && copy.desire) {
@@ -347,7 +347,7 @@ if (transitionProgress > 0 && images[nextImageIndex]) {
         maxWidth: safeMaxW,
         opacity: copyOpacity,
         weight: '800',
-        scale: 0.97 + (copyOpacity * 0.06),
+        scale: 0.92 + (copyOpacity * 0.14) + (Math.sin(time * 0.0022) * 0.012),
         glow: true,
         accent: '#D4AF37'
       });

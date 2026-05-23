@@ -160,12 +160,17 @@ const AudioEngine = (() => {
     const result = await loadAudioFile(musicCategory, nicheId);
 
     let buffer;
-    if (result.success && result.buffer) {
-      buffer = result.buffer;
-    } else {
-      const cat = resolveCategory(nicheId, musicCategory);
-      buffer = generateProceduralTone(durationSeconds, cat);
-    }
+
+if (result.success && result.buffer) {
+
+  buffer = result.buffer;
+
+} else {
+
+  // No fallback sound
+  // Keep video silent
+  buffer = null;
+}
 
     return {
       buffer,

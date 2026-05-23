@@ -108,6 +108,101 @@ const TemplateSelector = (() => {
     return templatesData.textPositions[positionId] || templatesData.textPositions['bottom-center'];
   }
 
+// ── Smart motion sequence by niche + template ──
+function getSmartAnimationSequence(nicheId, templateId, imageCount = 5) {
+
+  const motionMap = {
+
+    // ── Jewelry ──
+    'jewelry-luxury': [
+      'cinematic-zoom',
+      'parallax',
+      'pan',
+      'blur-reveal',
+      'zoom-punch',
+      'ken-burns'
+    ],
+
+    'jewelry-emotional-gift': [
+      'blur-reveal',
+      'parallax',
+      'cinematic-zoom',
+      'ken-burns',
+      'zoom-punch'
+    ],
+
+    'jewelry-premium-lifestyle': [
+      'ken-burns',
+      'pan',
+      'parallax',
+      'cinematic-zoom'
+    ],
+
+    // ── Beauty ──
+    'beauty-glow': [
+      'glow',
+      'cinematic-zoom',
+      'parallax',
+      'blur-reveal'
+    ],
+
+    'beauty-premium-skin': [
+      'pan',
+      'ken-burns',
+      'cinematic-zoom'
+    ],
+
+    // ── Fashion ──
+    'fashion-editorial': [
+      'pan',
+      'ken-burns',
+      'zoom-punch',
+      'parallax'
+    ],
+
+    'fashion-viral': [
+      'zoom-punch',
+      'pan',
+      'blur-reveal',
+      'zoom-punch'
+    ],
+
+    // ── Gadgets ──
+    'gadgets-wow-effect': [
+      'zoom-punch',
+      'blur-reveal',
+      'pan',
+      'parallax'
+    ],
+
+    // ── Default fallback ──
+    'default': [
+      'cinematic-zoom',
+      'pan',
+      'parallax',
+      'ken-burns'
+    ]
+  };
+
+  const sequence =
+    motionMap[templateId] ||
+    motionMap[nicheId] ||
+    motionMap.default;
+
+  const smartAnimations = [];
+
+  for (let i = 0; i < imageCount; i++) {
+    const animId = sequence[i % sequence.length];
+
+    smartAnimations.push({
+      id: animId,
+      preset: getAnimationPreset(animId)
+    });
+  }
+
+  return smartAnimations;
+}
+
   // ── Populate niche select element ──
   function populateNicheSelect(selectEl) {
     if (!nichesData) return;
@@ -147,10 +242,11 @@ const TemplateSelector = (() => {
       template,
       ratio: ratioConf,
       duration: durationConf,
-      animations: template.animations.map(a => ({
-        id: a,
-        preset: getAnimationPreset(a)
-      })),
+      animations: getSmartAnimationSequence(
+        niche.id,
+        template.id,
+        10
+      ),
       textPosition: getTextPosition(template.textPosition),
       colors: {
         bg:     template.bgColor,

@@ -3,7 +3,8 @@
   "name": "English (UK)",
   "country": "UK",
   "hooks": {
-    "jewelry":  ["She'll adore this forever", "Luxury she truly deserves", "The perfect gift sorted", "Shine brilliantly today", "Elegance beautifully redefined"],
+    "jewelry":  ["She won't stop wearing it", "Everyone keeps asking about it", "A gift she'll never forget", "The detail changes everything", "She loved it instantly", "He wasn't expecting this", "Looks expensive. Costs less.", "One bracelet. So many compliments."
+],
     "beauty":   ["Your skin will love this", "Genuine results in days", "The secret's finally out", "Flawless skin starts here", "Glow like never before"],
     "fashion":  ["Stop the scroll instantly", "Dress brilliantly every day", "The trend has finally arrived", "Fashion that simply works", "Your new favourite look"],
     "gadgets":  ["This changes absolutely everything", "Tech that genuinely works", "Why didn't this exist sooner?", "The gadget everyone's talking about", "Innovation right in your hands"],
@@ -13,7 +14,7 @@
     "baby":     ["Your baby deserves the best", "Care backed by proper science", "Safety you can genuinely trust", "Happy family starts here", "Complete peace of mind delivered"]
   },
   "interest": {
-    "jewelry":  ["Handcrafted with a premium finish", "Exclusive design, love at first sight", "Fine jewellery for special occasions", "Genuine brilliance that lasts forever"],
+    "jewelry":  ["Luxury without the luxury price", "Elegant enough for every occasion", "Crafted to stand out beautifully", "Made to be worn every day", "Premium details people actually notice", "A timeless piece that feels expensive"],
     "beauty":   ["Dermatologist tested and approved", "Natural ingredients with advanced technology", "Visible results in just 7 days", "Developed by leading skin care experts"],
     "fashion":  ["Premium fabric with a perfect drape", "Versatile piece for every occasion", "Exclusive design crafted to last", "Conscious fashion with a distinctive style"],
     "gadgets":  ["Cutting-edge technology for daily use", "Compatible with all modern devices", "Full day battery life guaranteed", "Ergonomic and wonderfully intuitive"],
@@ -23,7 +24,7 @@
     "baby":     ["Tested and approved by paediatricians", "Hypoallergenic certified materials", "Maximum safety for your little one", "Developed with love and proper science"]
   },
   "desire": {
-    "jewelry":  ["Feel truly unique every day", "A gift she'll treasure forever", "Accessible luxury made just for you"],
+    "jewelry":  ["Elegant. Premium. Unforgettable.", "Made to be noticed", "Luxury you can actually wear daily", "Feels premium the moment you wear it", "The kind of piece people remember"],
     "beauty":   ["The radiant skin you deserve", "Confidence that comes from within", "Beauty that genuinely impresses"],
     "fashion":  ["Style that defines who you are", "The perfect look for any occasion", "Fashion that makes you truly shine"],
     "gadgets":  ["Productivity you'll genuinely feel", "Technology that simplifies everything", "Innovation right in your pocket"],
@@ -33,7 +34,7 @@
     "baby":     ["Safe and comfortable for baby", "Peace of mind for the whole family", "Care that truly makes a difference"]
   },
   "cta": {
-    "jewelry":  ["Shop now", "Get yours today", "Order today", "Grab yours"],
+    "jewelry":  ["Get yours today", "Shop now", "Limited stock", "Order yours now", "Don't miss out"],
     "beauty":   ["Try it now", "Get yours today", "Shop today", "Order now"],
     "fashion":  ["Shop now", "Wear it today", "Get yours", "Order now"],
     "gadgets":  ["Shop now", "Get yours today", "Order today", "Grab it now"],

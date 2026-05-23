@@ -432,20 +432,6 @@ if (
     const images = UploadEngine.getSingleImages();
     RenderEngine.startPreview(DOM.previewCanvas, images, copy, config);
 
-   // ── Voice narration preview ──
-    const voiceEnabled =
-    document.getElementById('enable-voice')?.checked;
-
-if (voiceEnabled) {
-
-  AudioEngine.stopVoice();
-
-  AudioEngine.speakCopy(
-    copy,
-    AppState.language
-  );
-}
-
     await delay(500);
 
     // ── Step 7: Export video ──
@@ -470,9 +456,23 @@ if (voiceEnabled) {
 
     AppState.exportResults = [exportResult];
 
-    // Show result
-    await delay(500);
-    showResult(exportResult);
+   // Show result
+   await delay(500);
+   showResult(exportResult);
+
+  // ── Voice narration preview ──
+  const voiceEnabled =
+    document.getElementById('enable-voice')?.checked;
+
+if (voiceEnabled) {
+
+  AudioEngine.stopVoice();
+
+  AudioEngine.speakCopy(
+    copy,
+    AppState.language
+  );
+}
 
   } catch (err) {
     console.error('[App] Generation error:', err);

@@ -194,10 +194,10 @@ ctx.font = `${weight} ${adjustedSize}px ${font}`;
   function calcTextSizes(canvasW, canvasH) {
     const base = Math.min(canvasW, canvasH);
     return {
-      hook:    Math.round(base * 0.075),
-      body:    Math.round(base * 0.048),
-      cta:     Math.round(base * 0.055),
-      urgency: Math.round(base * 0.032)
+      hook:    Math.round(base * 0.095),
+      body:    Math.round(base * 0.062),
+      cta:     Math.round(base * 0.065),
+      urgency: Math.round(base * 0.034)
     };
   }
 

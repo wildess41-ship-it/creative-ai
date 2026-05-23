@@ -431,6 +431,21 @@ if (
     setProgress(0.55, 'Starting preview…', 'render');
     const images = UploadEngine.getSingleImages();
     RenderEngine.startPreview(DOM.previewCanvas, images, copy, config);
+
+   // ── Voice narration preview ──
+    const voiceEnabled =
+    document.getElementById('enable-voice')?.checked;
+
+if (voiceEnabled) {
+
+  AudioEngine.stopVoice();
+
+  AudioEngine.speakCopy(
+    copy,
+    AppState.language
+  );
+}
+
     await delay(500);
 
     // ── Step 7: Export video ──

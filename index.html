@@ -210,6 +210,107 @@
       </div>
     </section>
 
+     <!-- ===== STEP 5: AI VOICE NARRATION ===== -->
+<section class="section" id="section-voice">
+
+  <h2 class="section__title">🎙 Narração IA</h2>
+
+  <div class="settings-grid">
+
+    <!-- Enable narration -->
+    <div class="field-group field-group--full">
+      <label class="field-label">
+        <input type="checkbox" id="enable-voice" />
+        Ativar narração automática
+      </label>
+    </div>
+
+    <!-- Copy mode -->
+    <div class="field-group">
+      <label class="field-label" for="voice-mode">
+        Tipo de roteiro
+      </label>
+
+      <select class="field-select" id="voice-mode">
+        <option value="auto">
+          Copy automática da IA
+        </option>
+
+        <option value="custom">
+          Minha própria copy
+        </option>
+      </select>
+    </div>
+
+    <!-- Voice type -->
+    <div class="field-group">
+      <label class="field-label" for="voice-type">
+        Tipo de voz
+      </label>
+
+      <select class="field-select" id="voice-type">
+        <option value="uk-female">
+          Feminina Luxury UK
+        </option>
+
+        <option value="uk-male">
+          Masculina Premium UK
+        </option>
+
+        <option value="ugc-female">
+          UGC Feminina
+        </option>
+
+        <option value="ugc-male">
+          UGC Masculina
+        </option>
+
+        <option value="soft-female">
+          Feminina Suave
+        </option>
+
+        <option value="deep-male">
+          Masculina Grave
+        </option>
+      </select>
+    </div>
+
+    <!-- Sync -->
+    <div class="field-group field-group--full">
+      <label class="field-label">
+        <input
+          type="checkbox"
+          id="sync-voice"
+          checked
+        />
+        Sincronizar texto com narração
+      </label>
+    </div>
+
+    <!-- Custom Script -->
+    <div
+      class="field-group field-group--full"
+      id="custom-script-wrap"
+      style="display:none"
+    >
+      <label
+        class="field-label"
+        for="custom-script"
+      >
+        Cole sua copy personalizada
+      </label>
+
+      <textarea
+        class="field-input"
+        id="custom-script"
+        rows="6"
+        placeholder="Cole aqui sua narração personalizada..."
+      ></textarea>
+    </div>
+
+  </div>
+</section>
+
     <!-- ===== GENERATE BUTTON ===== -->
     <section class="section section--center" id="section-generate">
       <button class="btn btn--primary btn--xl" id="btn-generate">

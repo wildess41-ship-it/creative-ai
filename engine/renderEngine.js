@@ -463,7 +463,7 @@ const RenderEngine = (() => {
     );
   }
 
-  // ── Render all frames to array (for export) ──
+  } // ── Render all frames to array (for export) ──
   async function renderAllFrames(canvas, images, copy, config, onProgress) {
     const ctx = canvas.getContext('2d');
     const W = canvas.width;

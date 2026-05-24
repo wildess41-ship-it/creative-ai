@@ -8,7 +8,7 @@ const UploadEngine = (() => {
 
   // ── Constants ──
   const MIN_IMAGES = 3;
-  const MAX_IMAGES = 15;
+  const MAX_IMAGES = 30;
   const MAX_FILE_SIZE_MB = 10;
   const ALLOWED_TYPES = [
     'image/jpeg',

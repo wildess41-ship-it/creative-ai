@@ -460,31 +460,6 @@ if (
    await delay(500);
    showResult(exportResult);
 
-// ── Voice narration synced ──
-const voiceEnabled =
-  document.getElementById('enable-voice')?.checked;
-
-if (voiceEnabled) {
-
-  AudioEngine.stopVoice();
-
-  DOM.previewVideo.onplaying =
-    () => {
-
-      setTimeout(() => {
-
-        AudioEngine.speakCopy(
-          copy,
-          AppState.language
-        );
-
-      }, 250);
-
-      DOM.previewVideo.onplaying =
-        null;
-    };
-}
-
   } catch (err) {
     console.error('[App] Generation error:', err);
     setProgress(0, `Error: ${err.message}`, null);

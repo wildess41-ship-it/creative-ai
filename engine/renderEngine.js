@@ -649,6 +649,350 @@ const RenderEngine = (() => {
     return 1;
   }
 
+  // ── Render a single frame ──
+function renderFrame(ctx, frameData) {
+
+  const {
+    canvasW,
+    canvasH,
+    images,
+    currentImageIndex,
+    nextImageIndex,
+    transitionProgress,
+    imageProgress,
+    copy,
+    copyPhase,
+    copyOpacity,
+    config,
+    time,
+    particles
+  } = frameData;
+
+  const template =
+    config.template;
+
+  const colors =
+    config.colors;
+
+  const position =
+    config.textPosition;
+
+  const fontStack =
+    getFont(
+      config.niche?.fontStyle ||
+      'modern-clean'
+    );
+
+  const sizes =
+    calcTextSizes(
+      canvasW,
+      canvasH
+    );
+
+  // ── Clear canvas ──
+  ctx.clearRect(
+    0,
+    0,
+    canvasW,
+    canvasH
+  );
+
+  // ── Background ──
+  ctx.fillStyle =
+    colors.bg;
+
+  ctx.fillRect(
+    0,
+    0,
+    canvasW,
+    canvasH
+  );
+
+  // ── Current image ──
+  if (
+    images[
+      currentImageIndex
+    ]
+  ) {
+
+    const smartAnimation =
+      config.animations[
+        currentImageIndex %
+        config.animations.length
+      ];
+
+    const anim =
+      smartAnimation?.id ||
+      'cinematic-zoom';
+
+    const preset =
+      smartAnimation?.preset ||
+      null;
+
+    AnimationEngine.applyImageAnimation(
+      ctx,
+      images[
+        currentImageIndex
+      ].img,
+      canvasW,
+      canvasH,
+      anim,
+      imageProgress,
+      preset,
+      time
+    );
+  }
+
+  // ── Transition ──
+  if (
+    transitionProgress > 0 &&
+    images[nextImageIndex]
+  ) {
+
+    const smartNext =
+      config.animations[
+        nextImageIndex %
+        config.animations.length
+      ];
+
+    const nextAnim =
+      smartNext?.id ||
+      'cinematic-zoom';
+
+    const nextPreset =
+      smartNext?.preset ||
+      null;
+
+    ctx.save();
+
+    ctx.globalAlpha =
+      transitionProgress *
+      0.9;
+
+    AnimationEngine.applyImageAnimation(
+      ctx,
+      images[
+        nextImageIndex
+      ].img,
+      canvasW,
+      canvasH,
+      nextAnim,
+      0,
+      nextPreset,
+      time
+    );
+
+    ctx.restore();
+  }
+
+  // ── Overlay ──
+  AnimationEngine.drawGradientOverlay(
+    ctx,
+    canvasW,
+    canvasH,
+    colors.bg,
+    template.overlayOpacity +
+      0.3
+  );
+
+  // ── Glow ──
+  if (
+    template.animations.includes(
+      'glow'
+    )
+  ) {
+
+    AnimationEngine.drawGlowOverlay(
+      ctx,
+      canvasW,
+      canvasH,
+      time,
+      colors.accent
+    );
+  }
+
+  // ── Sparkle ──
+  if (
+    template.animations.includes(
+      'sparkle'
+    ) &&
+    particles
+  ) {
+
+    particles.draw(
+      ctx,
+      time
+    );
+  }
+
+  // ── Copy ──
+  const textX =
+    resolveTextX(
+      position,
+      canvasW
+    );
+
+  const textY =
+    canvasH * 0.58;
+
+  const safeMaxW =
+    canvasW * 0.85;
+
+  if (
+    copyPhase ===
+      'attention' &&
+    copy.attention
+  ) {
+
+    drawText(
+      ctx,
+      copy.attention,
+      textX,
+      textY,
+      {
+        font:
+          fontStack,
+        size:
+          sizes.hook,
+        color:
+          '#FFFFFF',
+        align:
+          position.align,
+        maxWidth:
+          safeMaxW,
+        opacity:
+          copyOpacity,
+        weight:
+          '900',
+        scale:
+          0.88 +
+          (
+            copyOpacity *
+            0.18
+          ),
+        glow: true,
+        accent:
+          '#D4AF37'
+      }
+    );
+
+  } else if (
+    copyPhase ===
+      'interest' &&
+    copy.interest
+  ) {
+
+    drawText(
+      ctx,
+      copy.interest,
+      textX,
+      textY,
+      {
+        font:
+          fontStack,
+        size:
+          sizes.body,
+        color:
+          '#F5F5F5',
+        align:
+          position.align,
+        maxWidth:
+          safeMaxW,
+        opacity:
+          copyOpacity,
+        weight:
+          '700',
+        glow: false
+      }
+    );
+
+  } else if (
+    copyPhase ===
+      'desire' &&
+    copy.desire
+  ) {
+
+    drawText(
+      ctx,
+      copy.desire,
+      textX,
+      textY,
+      {
+        font:
+          fontStack,
+        size:
+          sizes.body,
+        color:
+          '#F5D061',
+        align:
+          position.align,
+        maxWidth:
+          safeMaxW,
+        opacity:
+          copyOpacity,
+        weight:
+          '800',
+        glow: true,
+        accent:
+          '#D4AF37'
+      }
+    );
+
+  } else if (
+    copyPhase ===
+      'cta' &&
+    copy.cta
+  ) {
+
+    const ctaY =
+      canvasH * 0.82;
+
+    drawCTA(
+      ctx,
+      copy.cta,
+      canvasW / 2,
+      ctaY,
+      {
+        font:
+          fontStack,
+        size:
+          sizes.cta,
+        color:
+          '#ffffff',
+        bgColor:
+          colors.accent +
+          'cc',
+        borderColor:
+          colors.accent,
+        opacity:
+          copyOpacity
+      }
+    );
+
+    if (
+      copy.urgency
+    ) {
+
+      drawUrgencyBadge(
+        ctx,
+        copy.urgency,
+        canvasW / 2,
+        ctaY -
+          sizes.cta * 2.2,
+        colors.accent,
+        copyOpacity
+      );
+    }
+  }
+
+  // ── Vignette ──
+  drawVignette(
+    ctx,
+    canvasW,
+    canvasH
+  );
+}
+
   // ── Live preview loop ──
   function startPreview(
     canvas,

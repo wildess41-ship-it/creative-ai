@@ -272,10 +272,23 @@ if (
     totalScenes;
 
   const currentTimeSec =
-  (time % (
-    config.duration.totalSeconds *
-    1000
-  )) / 1000;
+  typeof time === 'number'
+    ? (
+        time > (
+          config.duration.totalSeconds *
+          1000
+        )
+          ? (
+              time %
+              (
+                config.duration
+                  .totalSeconds *
+                1000
+              )
+            ) / 1000
+          : time / 1000
+      )
+    : 0;
 
 const currentScene =
   Math.min(

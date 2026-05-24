@@ -389,15 +389,31 @@ if (
 ) {
 
   const lines = customScript
-    .split('\n')
-    .filter(line => line.trim() !== '');
+  .split('\n')
+  .map(line => line.trim())
+  .filter(Boolean)
+  .slice(0, 8);
 
-  copy = {
-    attention: lines[0] || '—',
-    interest:  lines[1] || '—',
-    desire:    lines[2] || '—',
-    cta:       lines[3] || '—'
-  };
+copy = {
+  scenes: lines,
+
+  attention: lines[0] || '—',
+
+  interest:
+    lines[1] ||
+    lines[0] ||
+    '—',
+
+  desire:
+    lines[2] ||
+    lines[1] ||
+    '—',
+
+  cta:
+    lines[
+      lines.length - 1
+    ] || '—'
+};
 
 } else {
 

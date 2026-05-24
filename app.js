@@ -13,19 +13,51 @@
 // APP STATE
 // ============================================================
 const AppState = {
-  mode:         'single',    // 'single' | 'batch'
-  country:      'BR',
-  language:     'pt-BR',
-  ratio:        '9:16',
-  niche:        'jewelry',
-  templateId:   '',
-  duration:     'short',
-  musicStyle:   'auto',
-  productName:  '',
-  currentCopy:  null,
-  currentConfig: null,
-  exportResults: [],         // [{ name, blob, url, filename }]
-  isGenerating:  false
+
+  mode: 'single',
+
+  // ── Projects ──
+  currentProjectId:
+    null,
+
+  projects: [],
+
+  // ── Creative Settings ──
+  country: 'BR',
+
+  language:
+    'pt-BR',
+
+  ratio:
+    '9:16',
+
+  niche:
+    'jewelry',
+
+  templateId:
+    '',
+
+  duration:
+    'short',
+
+  musicStyle:
+    'auto',
+
+  productName:
+    '',
+
+  // ── Current Creative ──
+  currentCopy:
+    null,
+
+  currentConfig:
+    null,
+
+  exportResults:
+    [],
+
+  isGenerating:
+    false
 };
 
 // ============================================================

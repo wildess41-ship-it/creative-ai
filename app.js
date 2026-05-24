@@ -460,18 +460,29 @@ if (
    await delay(500);
    showResult(exportResult);
 
-  // ── Voice narration preview ──
-  const voiceEnabled =
-    document.getElementById('enable-voice')?.checked;
+// ── Voice narration synced ──
+const voiceEnabled =
+  document.getElementById('enable-voice')?.checked;
 
 if (voiceEnabled) {
 
   AudioEngine.stopVoice();
 
-  AudioEngine.speakCopy(
-    copy,
-    AppState.language
-  );
+  DOM.previewVideo.onplaying =
+    () => {
+
+      setTimeout(() => {
+
+        AudioEngine.speakCopy(
+          copy,
+          AppState.language
+        );
+
+      }, 250);
+
+      DOM.previewVideo.onplaying =
+        null;
+    };
 }
 
   } catch (err) {

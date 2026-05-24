@@ -245,38 +245,225 @@ const RenderEngine = (() => {
     }
 
     // ── 8. Copy text ──
-    const textX = resolveTextX(position, canvasW);
-    const textY = resolveTextY(position, canvasH);
-    const safeMaxW = canvasW * 0.85;
 
-    if (copyPhase === 'attention' && copy.attention) {
-      drawText(ctx, copy.attention, textX, textY, {
-        font: fontStack, size: sizes.hook, color: colors.text,
-        align: position.align, maxWidth: safeMaxW, opacity: copyOpacity, weight: '800'
-      });
-    } else if (copyPhase === 'interest' && copy.interest) {
-      drawText(ctx, copy.interest, textX, textY, {
-        font: fontStack, size: sizes.body, color: colors.text,
-        align: position.align, maxWidth: safeMaxW, opacity: copyOpacity, weight: '600'
-      });
-    } else if (copyPhase === 'desire' && copy.desire) {
-      drawText(ctx, copy.desire, textX, textY, {
-        font: fontStack, size: sizes.body, color: colors.accent,
-        align: position.align, maxWidth: safeMaxW, opacity: copyOpacity, weight: '700'
-      });
-    } else if (copyPhase === 'cta' && copy.cta) {
-      // CTA button
-      const ctaY = canvasH * 0.82;
-      drawCTA(ctx, copy.cta, canvasW / 2, ctaY, {
-        font: fontStack, size: sizes.cta, color: '#ffffff',
-        bgColor: colors.accent + 'cc', borderColor: colors.accent,
-        opacity: copyOpacity
-      });
-      // Urgency text above CTA
-      if (copy.urgency) {
-        drawUrgencyBadge(ctx, copy.urgency, canvasW / 2, ctaY - sizes.cta * 2.2, colors.accent, copyOpacity);
+const textX = resolveTextX(
+  position,
+  canvasW
+);
+
+const textY = resolveTextY(
+  position,
+  canvasH
+);
+
+const safeMaxW =
+  canvasW * 0.85;
+
+if (
+  copy.scenes &&
+  copy.scenes.length > 0
+) {
+
+  const totalScenes =
+    copy.scenes.length;
+
+  const sceneDuration =
+    config.duration.totalSeconds /
+    totalScenes;
+
+  const currentScene =
+    Math.min(
+      Math.floor(
+        time / 1000 /
+        sceneDuration
+      ),
+      totalScenes - 1
+    );
+
+  const sceneText =
+    copy.scenes[
+      currentScene
+    ];
+
+  const isLastScene =
+    currentScene ===
+    totalScenes - 1;
+
+  if (
+    isLastScene
+  ) {
+
+    const ctaY =
+      canvasH * 0.82;
+
+    drawCTA(
+      ctx,
+      sceneText,
+      canvasW / 2,
+      ctaY,
+      {
+        font: fontStack,
+        size: sizes.cta,
+        color: '#ffffff',
+        bgColor:
+          colors.accent + 'cc',
+        borderColor:
+          colors.accent,
+        opacity:
+          copyOpacity
       }
-    }
+    );
+
+  } else {
+
+    drawText(
+      ctx,
+      sceneText,
+      textX,
+      textY,
+      {
+        font:
+          fontStack,
+
+        size:
+          currentScene === 0
+            ? sizes.hook
+            : sizes.body,
+
+        color:
+          currentScene >=
+          totalScenes - 2
+            ? colors.accent
+            : colors.text,
+
+        align:
+          position.align,
+
+        maxWidth:
+          safeMaxW,
+
+        opacity:
+          copyOpacity,
+
+        weight:
+          currentScene === 0
+            ? '800'
+            : '600'
+      }
+    );
+  }
+
+} else {
+
+  // fallback antigo AIDA
+
+  if (
+    copyPhase ===
+      'attention' &&
+    copy.attention
+  ) {
+
+    drawText(
+      ctx,
+      copy.attention,
+      textX,
+      textY,
+      {
+        font: fontStack,
+        size: sizes.hook,
+        color: colors.text,
+        align:
+          position.align,
+        maxWidth:
+          safeMaxW,
+        opacity:
+          copyOpacity,
+        weight: '800'
+      }
+    );
+
+  } else if (
+    copyPhase ===
+      'interest' &&
+    copy.interest
+  ) {
+
+    drawText(
+      ctx,
+      copy.interest,
+      textX,
+      textY,
+      {
+        font: fontStack,
+        size: sizes.body,
+        color: colors.text,
+        align:
+          position.align,
+        maxWidth:
+          safeMaxW,
+        opacity:
+          copyOpacity,
+        weight: '600'
+      }
+    );
+
+  } else if (
+    copyPhase ===
+      'desire' &&
+    copy.desire
+  ) {
+
+    drawText(
+      ctx,
+      copy.desire,
+      textX,
+      textY,
+      {
+        font: fontStack,
+        size: sizes.body,
+        color:
+          colors.accent,
+        align:
+          position.align,
+        maxWidth:
+          safeMaxW,
+        opacity:
+          copyOpacity,
+        weight: '700'
+      }
+    );
+
+  } else if (
+    copyPhase ===
+      'cta' &&
+    copy.cta
+  ) {
+
+    const ctaY =
+      canvasH * 0.82;
+
+    drawCTA(
+      ctx,
+      copy.cta,
+      canvasW / 2,
+      ctaY,
+      {
+        font:
+          fontStack,
+        size:
+          sizes.cta,
+        color:
+          '#ffffff',
+        bgColor:
+          colors.accent + 'cc',
+        borderColor:
+          colors.accent,
+        opacity:
+          copyOpacity
+      }
+    );
+  }
+}
 
     // ── 9. Subtle vignette ──
     drawVignette(ctx, canvasW, canvasH);

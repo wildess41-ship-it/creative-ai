@@ -193,19 +193,35 @@
   },
 
   "durationConfigs": {
-    "short": {
-      "totalSeconds": 10,
-      "framesPerSecond": 30,
-      "totalFrames": 300,
-      "imageDisplayTime": 2500,
-      "transitionTime": 600
-    },
-    "medium": {
-      "totalSeconds": 15,
-      "framesPerSecond": 30,
-      "totalFrames": 450,
-      "imageDisplayTime": 3500,
-      "transitionTime": 800
-    }
+  "short": {
+    "totalSeconds": 15,
+    "framesPerSecond": 30,
+    "totalFrames": 450,
+    "imageDisplayTime": 3000,
+    "transitionTime": 700
+  },
+
+  "medium": {
+    "totalSeconds": 30,
+    "framesPerSecond": 30,
+    "totalFrames": 900,
+    "imageDisplayTime": 3500,
+    "transitionTime": 800
+  },
+
+  "long": {
+    "totalSeconds": 45,
+    "framesPerSecond": 30,
+    "totalFrames": 1350,
+    "imageDisplayTime": 4000,
+    "transitionTime": 900
+  },
+
+  "extended": {
+    "totalSeconds": 60,
+    "framesPerSecond": 30,
+    "totalFrames": 1800,
+    "imageDisplayTime": 4500,
+    "transitionTime": 1000
   }
 }

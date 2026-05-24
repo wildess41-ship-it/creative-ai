@@ -719,7 +719,7 @@ const currentScene =
         copyPhase: getCopyPhase(currentSec, durationConf.totalSeconds),
         copyOpacity: getCopyOpacity(currentSec, durationConf.totalSeconds),
         config,
-        time: timestamp,
+        time: elapsed,
         particles
       });
 

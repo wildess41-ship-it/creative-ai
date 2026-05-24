@@ -271,14 +271,20 @@ if (
     config.duration.totalSeconds /
     totalScenes;
 
-  const currentScene =
-    Math.min(
-      Math.floor(
-        time / 1000 /
-        sceneDuration
-      ),
-      totalScenes - 1
-    );
+  const currentTimeSec =
+  (time % (
+    config.duration.totalSeconds *
+    1000
+  )) / 1000;
+
+const currentScene =
+  Math.min(
+    Math.floor(
+      currentTimeSec /
+      sceneDuration
+    ),
+    totalScenes - 1
+  );
 
   const sceneText =
     copy.scenes[

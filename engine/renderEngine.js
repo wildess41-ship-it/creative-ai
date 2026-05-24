@@ -454,6 +454,7 @@ if (transitionProgress > 0 && images[nextImageIndex]) {
       : null;
 
     let startTime = null;
+    let lastCopyPhase = null;
 
     function loop(timestamp) {
       if (!isRendering) return;
@@ -461,6 +462,48 @@ if (transitionProgress > 0 && images[nextImageIndex]) {
 
       const elapsed = (timestamp - startTime) % totalMs;
       const currentSec = elapsed / 1000;
+
+      // ── Sync narration by phase ──
+const voiceEnabled =
+  document.getElementById(
+    'enable-voice'
+  )?.checked;
+
+if (voiceEnabled && copy) {
+
+  const currentPhase =
+    getCopyPhase(
+      currentSec,
+      totalMs / 1000,
+      copy
+    );
+
+  if (
+    currentPhase &&
+    currentPhase !==
+      lastCopyPhase
+  ) {
+
+    lastCopyPhase =
+      currentPhase;
+
+    AudioEngine.stopVoice();
+
+    const phrase =
+      copy[currentPhase];
+
+    if (phrase) {
+
+      AudioEngine.speakCopy(
+  {
+    attention:
+      phrase
+  },
+  AppState.language
+);
+    }
+  }
+}
 
       // Which image is showing
       const totalImages = images.length;

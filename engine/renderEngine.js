@@ -10,6 +10,7 @@ const RenderEngine = (() => {
   // ── State ──
   let isRendering = false;
   let previewRAF  = null;
+  let voiceStarted = false;
 
   // ── Font stack by style ──
   const FONT_STACKS = {
@@ -341,7 +342,57 @@ const RenderEngine = (() => {
 
     function loop(timestamp) {
       if (!isRendering) return;
-      if (!startTime) startTime = timestamp;
+      if (!startTime) {
+  startTime = timestamp;
+
+  const voiceEnabled =
+    document.getElementById(
+      'enable-voice'
+    )?.checked;
+
+  if (
+    voiceEnabled &&
+    !voiceStarted &&
+    copy
+  ) {
+
+    voiceStarted =
+      true;
+
+    const narration = [
+      copy.attention,
+      copy.interest,
+      copy.desire,
+      copy.cta
+    ]
+      .filter(Boolean)
+      .join('. ');
+
+    setTimeout(() => {
+
+      try {
+
+        AudioEngine.stopVoice?.();
+
+        AudioEngine.speakCopy?.(
+          {
+            attention:
+              narration
+          },
+          AppState.language
+        );
+
+      } catch (err) {
+
+        console.warn(
+          'Voice error:',
+          err
+        );
+      }
+
+    }, 300);
+  }
+}
 
       const elapsed = (timestamp - startTime) % totalMs;
       const currentSec = elapsed / 1000;
@@ -382,11 +433,34 @@ const RenderEngine = (() => {
 
   // ── Stop preview ──
   function stopPreview() {
-    isRendering = false;
-    if (previewRAF) {
-      cancelAnimationFrame(previewRAF);
-      previewRAF = null;
-    }
+
+  isRendering = false;
+
+  if (previewRAF) {
+    cancelAnimationFrame(
+      previewRAF
+    );
+
+    previewRAF = null;
+  }
+
+  try {
+
+    window
+      .speechSynthesis
+      ?.cancel?.();
+
+    AudioEngine
+      ?.stopVoice?.();
+    
+    voiceStarted = false;
+
+  } catch (err) {
+
+    console.warn(
+      'Voice stop failed:',
+      err
+    );
   }
 
   // ── Render all frames to array (for export) ──

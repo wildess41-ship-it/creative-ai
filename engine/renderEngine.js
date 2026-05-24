@@ -341,34 +341,26 @@ const currentScene =
       textX,
       textY,
       {
-        font:
-          fontStack,
+  font:
+    fontStack,
 
-        size:
-          currentScene === 0
-            ? sizes.hook
-            : sizes.body,
+  size: 54,
 
-        color:
-          currentScene >=
-          totalScenes - 2
-            ? colors.accent
-            : colors.text,
+  color:
+    colors.text,
 
-        align:
-          position.align,
+  align:
+    position.align,
 
-        maxWidth:
-          safeMaxW,
+  maxWidth:
+    safeMaxW,
 
-        opacity:
-          copyOpacity,
+  opacity:
+    copyOpacity,
 
-        weight:
-          currentScene === 0
-            ? '800'
-            : '600'
-      }
+  weight:
+    '700'
+}
     );
   }
 

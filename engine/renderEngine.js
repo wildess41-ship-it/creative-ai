@@ -292,34 +292,135 @@ const RenderEngine = (() => {
   }
 
   // ── Determine copy phase from time ──
-  function getCopyPhase(currentTimeSec) {
-    if (currentTimeSec < 2)  return 'attention';
-    if (currentTimeSec < 5)  return 'interest';
-    if (currentTimeSec < 8)  return 'desire';
-    return 'cta';
+  function getCopyPhase(
+  currentTimeSec,
+  totalSeconds = 15
+) {
+
+  const attentionEnd =
+    totalSeconds * 0.18;
+
+  const interestEnd =
+    totalSeconds * 0.42;
+
+  const desireEnd =
+    totalSeconds * 0.72;
+
+  if (
+    currentTimeSec <
+    attentionEnd
+  ) {
+    return 'attention';
   }
 
-  // ── Calculate copy opacity (fade in/out) ──
-  function getCopyOpacity(currentTimeSec) {
-    const phases = [
-      { start: 0,  end: 2  },
-      { start: 2,  end: 5  },
-      { start: 5,  end: 8  },
-      { start: 8,  end: 12 }
-    ];
-    for (const phase of phases) {
-      if (currentTimeSec >= phase.start && currentTimeSec < phase.end) {
-        const duration = phase.end - phase.start;
-        const elapsed  = currentTimeSec - phase.start;
-        const fadeIn   = 0.3;
-        const fadeOut  = 0.3;
-        if (elapsed < fadeIn) return elapsed / fadeIn;
-        if (elapsed > duration - fadeOut) return (duration - elapsed) / fadeOut;
-        return 1;
-      }
-    }
-    return 1;
+  if (
+    currentTimeSec <
+    interestEnd
+  ) {
+    return 'interest';
   }
+
+  if (
+    currentTimeSec <
+    desireEnd
+  ) {
+    return 'desire';
+  }
+
+  return 'cta';
+}
+
+  // ── Calculate copy opacity (fade in/out) ──
+  function getCopyOpacity(
+  currentTimeSec,
+  totalSeconds = 15
+) {
+
+  const phases = [
+
+    {
+      start: 0,
+      end:
+        totalSeconds * 0.18
+    },
+
+    {
+      start:
+        totalSeconds * 0.18,
+
+      end:
+        totalSeconds * 0.42
+    },
+
+    {
+      start:
+        totalSeconds * 0.42,
+
+      end:
+        totalSeconds * 0.72
+    },
+
+    {
+      start:
+        totalSeconds * 0.72,
+
+      end:
+        totalSeconds
+    }
+  ];
+
+  for (
+    const phase
+    of phases
+  ) {
+
+    if (
+      currentTimeSec >=
+      phase.start &&
+
+      currentTimeSec <
+      phase.end
+    ) {
+
+      const duration =
+        phase.end -
+        phase.start;
+
+      const elapsed =
+        currentTimeSec -
+        phase.start;
+
+      const fadeIn = 0.4;
+      const fadeOut = 0.4;
+
+      if (
+        elapsed <
+        fadeIn
+      ) {
+        return (
+          elapsed /
+          fadeIn
+        );
+      }
+
+      if (
+        elapsed >
+        duration -
+        fadeOut
+      ) {
+
+        return (
+          duration -
+          elapsed
+        ) / fadeOut;
+      }
+
+      return 1;
+    }
+  }
+
+  return 1;
+}
 
   // ── Live preview loop ──
   function startPreview(canvas, images, copy, config, onFrame) {
@@ -417,8 +518,8 @@ const RenderEngine = (() => {
         transitionProgress,
         imageProgress,
         copy,
-        copyPhase: getCopyPhase(currentSec),
-        copyOpacity: getCopyOpacity(currentSec),
+        copyPhase: getCopyPhase(currentSec, durationConf.totalSeconds),
+        copyOpacity: getCopyOpacity(currentSec, durationConf.totalSeconds),
         config,
         time: timestamp,
         particles
@@ -503,8 +604,8 @@ const RenderEngine = (() => {
         transitionProgress,
         imageProgress,
         copy,
-        copyPhase: getCopyPhase(currentSec),
-        copyOpacity: getCopyOpacity(currentSec),
+        copyPhase: getCopyPhase(currentSec, durationConf.totalSeconds),
+        copyOpacity: getCopyOpacity(currentSec, durationConf.totalSeconds),
         config,
         time: elapsed,
         particles

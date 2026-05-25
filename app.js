@@ -113,9 +113,9 @@ DOM.btnNewProject =
     'btn-new-project'
   );
 
-DOM.currentProjectName =
+DOM.projectSelector =
   document.getElementById(
-    'current-project-name'
+    'project-selector'
   );
 
   // Progress
@@ -826,13 +826,7 @@ function createNewProject(
   AppState.currentProjectId =
     project.id;
 
-  if (
-  DOM.currentProjectName
-) {
-  DOM.currentProjectName
-    .textContent =
-      project.name;
-}
+  renderProjects();
 
   console.log(
     '[Project] Created:',
@@ -840,6 +834,45 @@ function createNewProject(
   );
 
   return project;
+}
+
+function renderProjects() {
+
+  if (!DOM.projectSelector)
+    return;
+
+  DOM.projectSelector.innerHTML =
+    '';
+
+  AppState.projects.forEach(
+    project => {
+
+      const option =
+        document.createElement(
+          'option'
+        );
+
+      option.value =
+        project.id;
+
+      option.textContent =
+        project.name;
+
+      if (
+        project.id ===
+        AppState.currentProjectId
+      ) {
+
+        option.selected =
+          true;
+      }
+
+      DOM.projectSelector
+        .appendChild(
+          option
+        );
+    }
+  );
 }
 
 function getCurrentProject() {
@@ -929,6 +962,29 @@ async function init() {
 
   // ── New project (top bar) ──
 DOM.btnNewProject.addEventListener('click', startNewProject);
+
+  DOM.projectSelector
+.addEventListener(
+  'change',
+  (e) => {
+
+    AppState.currentProjectId =
+      e.target.value;
+
+    const project =
+      getCurrentProject();
+
+    console.log(
+      '[Project] Switched:',
+      project
+    );
+
+    showToast(
+      `Project switched to "${project.name}"`,
+      'success'
+    );
+  }
+);
 
   // ── Initial state ──
   setMode('single');

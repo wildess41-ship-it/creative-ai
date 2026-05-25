@@ -671,6 +671,10 @@ function showResult(exportResult) {
   DOM.sectionResult.style.display   = 'block';
   DOM.batchResults.style.display    = 'none';
 
+  saveVideoToProject(
+  exportResult
+);
+
   // Setup download button
   DOM.btnDownload.onclick = () => {
     ExportEngine.downloadFile(exportResult.url, exportResult.filename);
@@ -883,6 +887,122 @@ function getCurrentProject() {
     p =>
       p.id ===
       AppState.currentProjectId
+  );
+}
+
+function saveVideoToProject(
+  exportResult
+) {
+
+  const project =
+    getCurrentProject();
+
+  if (!project)
+    return;
+
+  project.videos.push({
+
+    id:
+      crypto.randomUUID(),
+
+    name:
+      exportResult.filename,
+
+    url:
+      exportResult.url,
+
+    createdAt:
+      new Date()
+        .toISOString()
+  });
+
+  renderProjectVideos();
+}
+
+function renderProjectVideos() {
+
+  if (
+    !DOM.projectVideosList
+  ) return;
+
+  const project =
+    getCurrentProject();
+
+  DOM.projectVideosList
+    .innerHTML = '';
+
+  if (
+    !project ||
+    !project.videos.length
+  ) {
+
+    DOM.projectVideosList
+      .innerHTML = `
+        <p class="project-videos__empty">
+          No videos in this project yet.
+        </p>
+      `;
+
+    return;
+  }
+
+  project.videos.forEach(
+    video => {
+
+      const card =
+        document.createElement(
+          'div'
+        );
+
+      card.className =
+        'batch-result-item';
+
+      card.innerHTML = `
+        <span
+          class="
+          batch-result-item__name
+          "
+        >
+          ${video.name}
+        </span>
+
+        <button
+          class="
+          btn
+          btn--outline
+          btn--sm
+          "
+        >
+          ⬇ Download
+        </button>
+      `;
+
+      card
+        .querySelector(
+          'button'
+        )
+        .addEventListener(
+          'click',
+          () => {
+
+            ExportEngine
+              .downloadFile(
+                video.url,
+                video.name
+              );
+
+            showToast(
+              'Download started!',
+              'success'
+            );
+          }
+        );
+
+      DOM.projectVideosList
+        .appendChild(
+          card
+        );
+    }
   );
 }
 

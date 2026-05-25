@@ -744,6 +744,58 @@ function resetApp() {
 }
 
 // ============================================================
+// PROJECTS
+// ============================================================
+
+function createNewProject(
+  name = 'New Project'
+) {
+
+  const project = {
+
+    id:
+      crypto.randomUUID(),
+
+    name,
+
+    createdAt:
+      new Date()
+        .toISOString(),
+
+    images: [],
+
+    copy: null,
+
+    config: null,
+
+    videos: []
+  };
+
+  AppState.projects.push(
+    project
+  );
+
+  AppState.currentProjectId =
+    project.id;
+
+  console.log(
+    '[Project] Created:',
+    project
+  );
+
+  return project;
+}
+
+function getCurrentProject() {
+
+  return AppState.projects.find(
+    p =>
+      p.id ===
+      AppState.currentProjectId
+  );
+}
+
+// ============================================================
 // UTILITY
 // ============================================================
 function delay(ms) {
@@ -763,6 +815,9 @@ async function init() {
   TemplateSelector.populateTemplateSelect(DOM.selTemplate, AppState.niche);
   AppState.templateId = DOM.selTemplate.value;
 
+  // ── Create first project ──
+  createNewProject();
+  
   // ── Generate initial copy ──
   generateAndDisplayCopy();
 

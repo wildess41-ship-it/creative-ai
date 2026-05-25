@@ -129,6 +129,8 @@ DOM.projectSelector =
 
   // Result
   DOM.sectionResult    = document.getElementById('section-result');
+  DOM.projectVideos = document.getElementById('project-videos');
+  DOM.projectVideosList = document.getElementById('project-videos-list');
   DOM.previewCanvas    = document.getElementById('preview-canvas');
   DOM.previewVideo     = document.getElementById('preview-video');
   DOM.videoPreviewWrap = document.getElementById('video-preview-wrap');

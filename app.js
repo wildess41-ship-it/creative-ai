@@ -826,6 +826,14 @@ function createNewProject(
   AppState.currentProjectId =
     project.id;
 
+  if (
+  DOM.currentProjectName
+) {
+  DOM.currentProjectName
+    .textContent =
+      project.name;
+}
+
   console.log(
     '[Project] Created:',
     project

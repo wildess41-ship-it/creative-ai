@@ -703,6 +703,43 @@ function showBatchResults() {
 // ============================================================
 // NEW CREATIVE (RESET)
 // ============================================================
+
+// ============================================================
+// NEW PROJECT
+// ============================================================
+
+function startNewProject() {
+
+  const name =
+    prompt(
+      'Project name:',
+      `Project ${
+        AppState.projects.length + 1
+      }`
+    );
+
+  const project =
+    createNewProject(
+      name ||
+      `Project ${
+        AppState.projects.length
+      }`
+    );
+
+  // reset visual state
+  resetApp();
+
+  console.log(
+    '[Project] Active:',
+    project
+  );
+
+  showToast(
+    `Project "${project.name}" created!`,
+    'success'
+  );
+}
+
 function resetApp() {
   RenderEngine.stopPreview();
   AudioEngine.stopPreview();
@@ -869,7 +906,7 @@ async function init() {
   });
 
   // ── New creative ──
-  DOM.btnNewCreative.addEventListener('click', resetApp);
+  DOM.btnNewCreative.addEventListener('click', startNewProject);
 
   // ── Initial state ──
   setMode('single');

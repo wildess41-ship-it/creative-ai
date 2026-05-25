@@ -107,6 +107,17 @@ function cacheDom() {
   // Generate
   DOM.btnGenerate   = document.getElementById('btn-generate');
 
+  // Projects
+DOM.btnNewProject =
+  document.getElementById(
+    'btn-new-project'
+  );
+
+DOM.currentProjectName =
+  document.getElementById(
+    'current-project-name'
+  );
+
   // Progress
   DOM.sectionProgress  = document.getElementById('section-progress');
   DOM.progressSingle   = document.getElementById('progress-single');
@@ -907,6 +918,9 @@ async function init() {
 
   // ── New creative ──
   DOM.btnNewCreative.addEventListener('click', startNewProject);
+
+  // ── New project (top bar) ──
+DOM.btnNewProject.addEventListener('click', startNewProject);
 
   // ── Initial state ──
   setMode('single');

@@ -389,6 +389,15 @@ async function generateSingle() {
     return;
   }
 
+  const selectedProjectId =
+  await chooseProject();
+
+if (!selectedProjectId)
+  return;
+
+AppState.currentProjectId =
+  selectedProjectId;
+
   AppState.isGenerating = true;
   DOM.btnGenerate.disabled = true;
 
@@ -1004,6 +1013,88 @@ function renderProjectVideos() {
         );
     }
   );
+}
+
+async function chooseProject() {
+
+  if (
+    AppState.projects.length === 0
+  ) {
+
+    const project =
+      createNewProject(
+        'Project 1'
+      );
+
+    return project.id;
+  }
+
+  const projectNames =
+    AppState.projects
+      .map(
+        (p, i) =>
+          `${i + 1}. ${p.name}`
+      )
+      .join('\n');
+
+  const selection =
+    prompt(
+`Choose a project:
+
+${projectNames}
+
+Type the number.
+
+Or type:
+new`
+    );
+
+  if (!selection)
+    return null;
+
+  if (
+    selection
+      .toLowerCase() ===
+    'new'
+  ) {
+
+    const newName =
+      prompt(
+        'Project name:'
+      );
+
+    const newProject =
+      createNewProject(
+        newName ||
+        `Project ${
+          AppState.projects
+            .length + 1
+        }`
+      );
+
+    return newProject.id;
+  }
+
+  const index =
+    parseInt(selection) - 1;
+
+  if (
+    index < 0 ||
+    index >=
+    AppState.projects.length
+  ) {
+
+    showToast(
+      'Invalid project.',
+      'error'
+    );
+
+    return null;
+  }
+
+  return AppState.projects[
+    index
+  ].id;
 }
 
 // ============================================================
